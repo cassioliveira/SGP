@@ -21,8 +21,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *Class to modelling the Employee entity.
- * 
+ * Class to modelling the Employee entity.
+ *
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
@@ -35,13 +35,13 @@ public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @Column(name = "emp_code", nullable = false, length = 20)
     private String code;
-    
-   @Column(name = "emp_name", nullable = false, length = 100)
+
+    @Column(name = "emp_name", nullable = false, length = 100)
     private String name;
-    
+
     @Column(name = "emp_email", nullable = false, length = 100)
     private String email;
 
@@ -51,12 +51,12 @@ public class Employee implements Serializable {
     @Column(name = "emp_gender", length = 1)
     private char gender;
 
-    @Column(name = "emp_cpf", nullable = false, length = 11)
+    @Column(name = "emp_cpf", nullable = false, length = 11, unique = true)
     private char cpf;
-    
+
     @Column(name = "emp_doc_number", nullable = false, length = 15)
     private String docNumber;
-    
+
     @Column(name = "emp_doc_type", nullable = false, length = 10)
     private String docType;
 
@@ -65,7 +65,7 @@ public class Employee implements Serializable {
 
     @Column(name = "emp_phone1", nullable = false, length = 13)
     private String phone1;
-    
+
     @Column(name = "emp_phone2", length = 13)
     private String phone2;
 
@@ -75,27 +75,26 @@ public class Employee implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "emp_birthdate")
     private GregorianCalendar birthDate;
-    
+
     /* Annotations and attibutes to relationship of Entities */
-    
     @OneToMany(mappedBy = "fkEmpId", targetEntity = Room.class)
     private List<Room> rooms;
-    
+
     @OneToMany(mappedBy = "fkEmployeeId", targetEntity = Accommodation.class)
     private List<Accommodation> accommodations;
-    
+
     @OneToMany(mappedBy = "fkEmployeeId", targetEntity = Reservation.class)
     private List<Reservation> reservations;
-    
+
     @OneToMany(mappedBy = "fkEmployeeId", targetEntity = Service.class)
     private List<Service> services;
-    
+
     @OneToMany(mappedBy = "fkEmployeeId", targetEntity = Client.class)
     private List<Client> clients;
-    
+
     @OneToMany(mappedBy = "fkEmployeeId", targetEntity = Login.class)
     private List<Login> logins;
-    
+
     public Long getId() {
         return id;
     }

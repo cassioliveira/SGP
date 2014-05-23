@@ -21,8 +21,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
- *Class to modelling the Client entity.
- * 
+ * Class to modelling the Client entity.
+ *
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
@@ -51,7 +51,6 @@ public class Client implements Serializable {
 
     @Column(name = "client_phone2", length = 13)
     private String phone2;
-    
 
     @Column(name = "client_nationality", length = 40)
     private String nationality;

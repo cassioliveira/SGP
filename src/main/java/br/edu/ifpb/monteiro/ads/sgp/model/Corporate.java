@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import java.io.Serializable;
@@ -15,30 +14,31 @@ import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
- *Class to modelling the Corporate entity, making heritage with Client class,
+ * Class to modelling the Corporate entity, making heritage with Client class,
  * by JOINED strategy.
- * 
+ *
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 public class Corporate extends Client implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @Column(name = "client_fantasy_name", nullable = false, length = 100)
-    private String fantasyName;    
-    
-    @Column(name = "client_cnpj", nullable = false, length = 14)
+    private String fantasyName;
+
+    @Column(name = "client_cnpj", nullable = false, length = 14, updatable = false, unique = true)
     private char cnpj;
-    
-    @Column(name = "client_state_register", nullable = false, length = 15)
+
+    @Column(name = "client_state_register", nullable = false, length = 15, unique = true)
     private String stateRegister;
-    
-    @Column(name = "client_municipal_register", nullable = false, length = 15)
+
+    @Column(name = "client_municipal_register", nullable = false, length = 15, unique = true)
     private String municipalRegister;
 
     public Long getId() {
@@ -129,5 +129,5 @@ public class Corporate extends Client implements Serializable {
     public String toString() {
         return "br.edu.ifpb.monteiro.ads.sgp.model.Corporate[ id=" + id + " ]";
     }
-    
+
 }

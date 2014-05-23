@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import java.io.Serializable;
@@ -21,50 +20,48 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *Class to modelling the Reservation entity.
- * 
+ * Class to modelling the Reservation entity.
+ *
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-
 @Entity
 @Table(name = "Reservation")
 @PrimaryKeyJoinColumn(name = "id")
 public class Reservation implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @Column(name = "res_forecast_input", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private GregorianCalendar dateInput;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "res_forecast_output", nullable = false)
     private GregorianCalendar forecastOutput;
-    
+
     @Column(name = "res_room_type", length = 50)
     private String roomType;
-    
+
     @Column(name = "res_dependent", nullable = false, length = 5)
     private int dependent;
-    
+
     @Column(name = "res_quantity_child", nullable = false, length = 5)
     private int quantityChild;
-    
+
     /* Annotations and attibutes to relationship of Entities */
-    
     @ManyToOne
     @JoinColumn(name = "fk_employee", referencedColumnName = "id")
     private Employee fkEmployeeId;
-    
+
     @ManyToOne
     @JoinColumn(name = "fk_client", referencedColumnName = "id")
     private Client fkClientId;
-    
-    
+
     public Long getId() {
         return id;
     }
@@ -195,5 +192,5 @@ public class Reservation implements Serializable {
     public String toString() {
         return "br.edu.ifpb.monteiro.ads.sgp.model.Reservation[ id=" + id + " ]";
     }
-    
+
 }

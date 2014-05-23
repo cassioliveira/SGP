@@ -24,11 +24,10 @@ import javax.persistence.TemporalType;
 
 /**
  * Class to modelling the Service entity.
- * 
+ *
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-
 @Entity
 @Table(name = "Service")
 @PrimaryKeyJoinColumn(name = "id")
@@ -44,16 +43,15 @@ public class Service implements Serializable {
 
     @Column(name = "service_price", nullable = false)
     private double price;
-    
+
     @Column(name = "service_type", length = 50)
     private String type;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "service_date_time")
     private GregorianCalendar dateTime;
-    
-    /* Annotations and attibutes to relationship of Entities */
 
+    /* Annotations and attibutes to relationship of Entities */
     @ManyToOne
     @JoinColumn(name = "fk_employee", referencedColumnName = "id")
     private Employee fkEmployeeId;
@@ -70,8 +68,8 @@ public class Service implements Serializable {
             = @JoinColumn(name = "service_id", referencedColumnName = "id")
     )
     private List<Accommodation> accommodations;
-    
-      public Long getId() {
+
+    public Long getId() {
         return id;
     }
 

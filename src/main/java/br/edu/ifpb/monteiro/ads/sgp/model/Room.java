@@ -38,13 +38,13 @@ public class Room implements Serializable {
     @Column(name = "room_category", length = 50)
     private String category;
 
-    @Column(name = "room_number", length = 4)
+    @Column(name = "room_number", length = 4, unique = true)
     private int number;
     
     @Column(name = "room_description", length = 255)
     private String description;
     
-    @Column(name = "room_extension_number", length = 6)
+    @Column(name = "room_extension_number", length = 6, unique = true)
     private int extensionNumber;
 
     /* Annotations and attibutes to relationship of Entities */
@@ -64,11 +64,95 @@ public class Room implements Serializable {
         this.id = id;
     }
 
+    /**
+     * @return the category
+     */
+    public String getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    /**
+     * @return the number
+     */
+    public int getNumber() {
+        return number;
+    }
+
+    /**
+     * @param number the number to set
+     */
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the extensionNumber
+     */
+    public int getExtensionNumber() {
+        return extensionNumber;
+    }
+
+    /**
+     * @param extensionNumber the extensionNumber to set
+     */
+    public void setExtensionNumber(int extensionNumber) {
+        this.extensionNumber = extensionNumber;
+    }
+
+    /**
+     * @return the fkEmpId
+     */
+    public Employee getFkEmpId() {
+        return fkEmpId;
+    }
+
+    /**
+     * @param fkEmpId the fkEmpId to set
+     */
+    public void setFkEmpId(Employee fkEmpId) {
+        this.fkEmpId = fkEmpId;
+    }
+
+    /**
+     * @return the accommodations
+     */
+    public List<Accommodation> getAccommodations() {
+        return accommodations;
+    }
+
+    /**
+     * @param accommodations the accommodations to set
+     */
+    public void setAccommodations(List<Accommodation> accommodations) {
+        this.accommodations = accommodations;
+    }
+
     
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
 
@@ -79,7 +163,7 @@ public class Room implements Serializable {
             return false;
         }
         Room other = (Room) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -87,7 +171,7 @@ public class Room implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.ifpb.monteiro.ads.sgp.model.Room[ id=" + id + " ]";
+        return "br.edu.ifpb.monteiro.ads.sgp.model.Room[ id=" + getId() + " ]";
     }
 
 }

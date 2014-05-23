@@ -79,7 +79,7 @@ public class Accommodation implements Serializable {
     private String nextDestination;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "acc_date_input")
+    @Column(name = "acc_date_input", updatable = false)
     private GregorianCalendar dateInput;
 
     @Temporal(TemporalType.TIMESTAMP)

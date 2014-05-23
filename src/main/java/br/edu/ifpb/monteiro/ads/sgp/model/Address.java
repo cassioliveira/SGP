@@ -3,33 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
- *Class to represents compound attribute Address.
- * 
+ * Class to represents compound attribute Address.
+ *
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
 @Embeddable
 public class Address {
-    
+
     @Column(name = "address_street", length = 100, nullable = false)
     private String street;
 
     @Column(name = "address_uf", length = 2)
     private char uf;
-    
+
     @Column(name = "address_neighborhood", length = 30)
     private String neighborhood;
 
     @Column(name = "address_number", length = 5)
     private int number;
-    
+
     @Column(name = "address_city", length = 50, nullable = false)
     private String city;
 
@@ -136,5 +135,5 @@ public class Address {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
-    
+
 }

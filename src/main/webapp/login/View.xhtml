@@ -14,8 +14,6 @@
                     <p:panelGrid columns="2" rendered="#{loginController.selected != null}">
                         <h:outputText value="#{bundle.ViewLoginLabel_id}"/>
                         <h:outputText value="#{loginController.selected.id}" title="#{bundle.ViewLoginTitle_id}"/>
-                        <h:outputText value="#{bundle.ViewLoginLabel_serialVersionUID}"/>
-                        <h:outputText value="#{loginController.selected.serialVersionUID}" title="#{bundle.ViewLoginTitle_serialVersionUID}"/>
                         <h:outputText value="#{bundle.ViewLoginLabel_user}"/>
                         <h:outputText value="#{loginController.selected.user}" title="#{bundle.ViewLoginTitle_user}"/>
                         <h:outputText value="#{bundle.ViewLoginLabel_password}"/>

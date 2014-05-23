@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import java.io.Serializable;
@@ -16,25 +15,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- *
- * @author cassio
+ * Class to modelling the Login entity.
+ * 
+ * @author Cássio Oliveira
+ * @author Wilde Arruda
  */
 @Entity
 public class Login implements Serializable {
-    private static long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    @Column(name = "login_user", nullable = false, length = 16)
+
+    @Column(name = "login_user", nullable = false, length = 16, unique = true)
     private String user;
-    
+
     @Column(name = "login_password", nullable = false, length = 16)
     private String password;
-    
+
     @Column(name = "login_level", nullable = false, length = 20)
     private String level;
-    
+
     /* Annotations and attibutes to relationship of Entities */
     @ManyToOne
     @JoinColumn(name = "fk_employee", referencedColumnName = "id")
@@ -46,20 +48,6 @@ public class Login implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    /**
-     * @return the serialVersionUID
-     */
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    /**
-     * @param aSerialVersionUID the serialVersionUID to set
-     */
-    public static void setSerialVersionUID(long aSerialVersionUID) {
-        serialVersionUID = aSerialVersionUID;
     }
 
     /**
@@ -128,5 +116,5 @@ public class Login implements Serializable {
     public String toString() {
         return "br.edu.ifpb.monteiro.ads.sgp.model.Login[ id=" + getId() + " ]";
     }
-    
+
 }

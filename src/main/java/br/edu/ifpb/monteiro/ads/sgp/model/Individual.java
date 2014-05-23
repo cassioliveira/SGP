@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import java.io.Serializable;
@@ -18,30 +17,30 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *Class to modelling the Individual entity, making heritage with Client class,
+ * Class to modelling the Individual entity, making heritage with Client class,
  * by JOINED strategy.
- * 
+ *
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 public class Individual extends Client implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @Column(name = "client_gender", length = 1)
     private char gender;
 
-    @Column(name = "client_cpf", nullable = false, length = 11)
+    @Column(name = "client_cpf", nullable = false, length = 11, unique = true)
     private char cpf;
-    
+
     @Column(name = "client_doc_travel_number", nullable = false, length = 15)
     private String docTravelNumber;
-    
+
     @Column(name = "client_travel_doc_type", nullable = false, length = 10)
     private String travelDocType;
 
@@ -50,11 +49,10 @@ public class Individual extends Client implements Serializable {
 
     @Column(name = "client_profession", length = 50)
     private String profession;
-    
+
     @Temporal(TemporalType.DATE)
     @Column(name = "client_birthdate")
     private GregorianCalendar birthDate;
-    
 
     public Long getId() {
         return id;
@@ -106,7 +104,6 @@ public class Individual extends Client implements Serializable {
         this.docTravelNumber = docTravelNumber;
     }
 
-  
     /**
      * @return the travelDocType
      */
@@ -187,5 +184,5 @@ public class Individual extends Client implements Serializable {
     public String toString() {
         return "br.edu.ifpb.monteiro.ads.sgp.model.Individual[ id=" + id + " ]";
     }
-    
+
 }

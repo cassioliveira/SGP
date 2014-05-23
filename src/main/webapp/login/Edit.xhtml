@@ -14,8 +14,6 @@
                     <p:panelGrid columns="2" rendered="#{loginController.selected != null}">
                         <p:outputLabel value="#{bundle.EditLoginLabel_id}" for="id" />
                         <p:inputText id="id" value="#{loginController.selected.id}" title="#{bundle.EditLoginTitle_id}" />
-                        <p:outputLabel value="#{bundle.EditLoginLabel_serialVersionUID}" for="serialVersionUID" />
-                        <p:inputText id="serialVersionUID" value="#{loginController.selected.serialVersionUID}" title="#{bundle.EditLoginTitle_serialVersionUID}" />
                         <p:outputLabel value="#{bundle.EditLoginLabel_user}" for="user" />
                         <p:inputText id="user" value="#{loginController.selected.user}" title="#{bundle.EditLoginTitle_user}" required="true" requiredMessage="#{bundle.EditLoginRequiredMessage_user}"/>
                         <p:outputLabel value="#{bundle.EditLoginLabel_password}" for="password" />
