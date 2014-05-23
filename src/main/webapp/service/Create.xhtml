@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServiceCreateDlg" widgetVar="ServiceCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateServiceTitle}">
+            <h:form id="ServiceCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serviceController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateServiceLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{serviceController.selected.id}" title="#{bundle.CreateServiceTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateServiceLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{serviceController.selected.description}" title="#{bundle.CreateServiceTitle_description}" required="true" requiredMessage="#{bundle.CreateServiceRequiredMessage_description}"/>
+                        <p:outputLabel value="#{bundle.CreateServiceLabel_price}" for="price" />
+                        <p:inputText id="price" value="#{serviceController.selected.price}" title="#{bundle.CreateServiceTitle_price}" required="true" requiredMessage="#{bundle.CreateServiceRequiredMessage_price}"/>
+                        <p:outputLabel value="#{bundle.CreateServiceLabel_type}" for="type" />
+                        <p:inputText id="type" value="#{serviceController.selected.type}" title="#{bundle.CreateServiceTitle_type}" />
+                        <p:outputLabel value="#{bundle.CreateServiceLabel_dateTime}" for="dateTime" />
+                        <p:inputText id="dateTime" value="#{serviceController.selected.dateTime}" title="#{bundle.CreateServiceTitle_dateTime}" />
+                        <p:outputLabel value="#{bundle.CreateServiceLabel_fkEmployeeId}" for="fkEmployeeId" />
+                        <p:selectOneMenu id="fkEmployeeId" value="#{serviceController.selected.fkEmployeeId}" >
+                            <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
+                                           var="fkEmployeeIdItem"
+                                           itemValue="#{fkEmployeeIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateServiceLabel_fkClientId}" for="fkClientId" />
+                        <p:selectOneMenu id="fkClientId" value="#{serviceController.selected.fkClientId}" >
+                            <f:selectItems value="#{clientController.itemsAvailableSelectOne}"
+                                           var="fkClientIdItem"
+                                           itemValue="#{fkClientIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{serviceController.create}" value="#{bundle.Save}" update="display,:ServiceListForm:datalist,:growl" oncomplete="handleSubmit(args,'ServiceCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ServiceCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

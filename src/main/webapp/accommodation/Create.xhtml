@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AccommodationCreateDlg" widgetVar="AccommodationCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAccommodationTitle}">
+            <h:form id="AccommodationCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{accommodationController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{accommodationController.selected.id}" title="#{bundle.CreateAccommodationTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_increase}" for="increase" />
+                        <p:inputText id="increase" value="#{accommodationController.selected.increase}" title="#{bundle.CreateAccommodationTitle_increase}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_transport}" for="transport" />
+                        <p:inputText id="transport" value="#{accommodationController.selected.transport}" title="#{bundle.CreateAccommodationTitle_transport}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_discount}" for="discount" />
+                        <p:inputText id="discount" value="#{accommodationController.selected.discount}" title="#{bundle.CreateAccommodationTitle_discount}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_price}" for="price" />
+                        <p:inputText id="price" value="#{accommodationController.selected.price}" title="#{bundle.CreateAccommodationTitle_price}" required="true" requiredMessage="#{bundle.CreateAccommodationRequiredMessage_price}"/>
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_source}" for="source" />
+                        <p:inputText id="source" value="#{accommodationController.selected.source}" title="#{bundle.CreateAccommodationTitle_source}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_observations}" for="observations" />
+                        <p:inputText id="observations" value="#{accommodationController.selected.observations}" title="#{bundle.CreateAccommodationTitle_observations}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_reasonTravel}" for="reasonTravel" />
+                        <p:inputText id="reasonTravel" value="#{accommodationController.selected.reasonTravel}" title="#{bundle.CreateAccommodationTitle_reasonTravel}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_dependent}" for="dependent" />
+                        <p:inputText id="dependent" value="#{accommodationController.selected.dependent}" title="#{bundle.CreateAccommodationTitle_dependent}" required="true" requiredMessage="#{bundle.CreateAccommodationRequiredMessage_dependent}"/>
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_quantityChild}" for="quantityChild" />
+                        <p:inputText id="quantityChild" value="#{accommodationController.selected.quantityChild}" title="#{bundle.CreateAccommodationTitle_quantityChild}" required="true" requiredMessage="#{bundle.CreateAccommodationRequiredMessage_quantityChild}"/>
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_nextDestination}" for="nextDestination" />
+                        <p:inputText id="nextDestination" value="#{accommodationController.selected.nextDestination}" title="#{bundle.CreateAccommodationTitle_nextDestination}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_dateInput}" for="dateInput" />
+                        <p:inputText id="dateInput" value="#{accommodationController.selected.dateInput}" title="#{bundle.CreateAccommodationTitle_dateInput}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_forecastOutput}" for="forecastOutput" />
+                        <p:inputText id="forecastOutput" value="#{accommodationController.selected.forecastOutput}" title="#{bundle.CreateAccommodationTitle_forecastOutput}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_dateOutput}" for="dateOutput" />
+                        <p:inputText id="dateOutput" value="#{accommodationController.selected.dateOutput}" title="#{bundle.CreateAccommodationTitle_dateOutput}" />
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_fkRoomId}" for="fkRoomId" />
+                        <p:selectOneMenu id="fkRoomId" value="#{accommodationController.selected.fkRoomId}" >
+                            <f:selectItems value="#{roomController.itemsAvailableSelectOne}"
+                                           var="fkRoomIdItem"
+                                           itemValue="#{fkRoomIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_fkEmployeeId}" for="fkEmployeeId" />
+                        <p:selectOneMenu id="fkEmployeeId" value="#{accommodationController.selected.fkEmployeeId}" >
+                            <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
+                                           var="fkEmployeeIdItem"
+                                           itemValue="#{fkEmployeeIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAccommodationLabel_client}" for="client" />
+                        <p:selectOneMenu id="client" value="#{accommodationController.selected.client}" >
+                            <f:selectItems value="#{clientController.itemsAvailableSelectOne}"
+                                           var="clientItem"
+                                           itemValue="#{clientItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{accommodationController.create}" value="#{bundle.Save}" update="display,:AccommodationListForm:datalist,:growl" oncomplete="handleSubmit(args,'AccommodationCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AccommodationCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

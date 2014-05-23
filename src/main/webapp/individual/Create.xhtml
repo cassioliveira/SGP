@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IndividualCreateDlg" widgetVar="IndividualCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateIndividualTitle}">
+            <h:form id="IndividualCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{individualController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{individualController.selected.id}" title="#{bundle.CreateIndividualTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_gender}" for="gender" />
+                        <p:inputText id="gender" value="#{individualController.selected.gender}" title="#{bundle.CreateIndividualTitle_gender}" />
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_cpf}" for="cpf" />
+                        <p:inputText id="cpf" value="#{individualController.selected.cpf}" title="#{bundle.CreateIndividualTitle_cpf}" required="true" requiredMessage="#{bundle.CreateIndividualRequiredMessage_cpf}"/>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_docTravelNumber}" for="docTravelNumber" />
+                        <p:inputText id="docTravelNumber" value="#{individualController.selected.docTravelNumber}" title="#{bundle.CreateIndividualTitle_docTravelNumber}" required="true" requiredMessage="#{bundle.CreateIndividualRequiredMessage_docTravelNumber}"/>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_travelDocType}" for="travelDocType" />
+                        <p:inputText id="travelDocType" value="#{individualController.selected.travelDocType}" title="#{bundle.CreateIndividualTitle_travelDocType}" required="true" requiredMessage="#{bundle.CreateIndividualRequiredMessage_travelDocType}"/>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_issuingBoddy}" for="issuingBoddy" />
+                        <p:inputText id="issuingBoddy" value="#{individualController.selected.issuingBoddy}" title="#{bundle.CreateIndividualTitle_issuingBoddy}" required="true" requiredMessage="#{bundle.CreateIndividualRequiredMessage_issuingBoddy}"/>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_profession}" for="profession" />
+                        <p:inputText id="profession" value="#{individualController.selected.profession}" title="#{bundle.CreateIndividualTitle_profession}" />
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_birthDate}" for="birthDate" />
+                        <p:inputText id="birthDate" value="#{individualController.selected.birthDate}" title="#{bundle.CreateIndividualTitle_birthDate}" />
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{individualController.selected.id}" title="#{bundle.CreateIndividualTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{individualController.selected.name}" title="#{bundle.CreateIndividualTitle_name}" required="true" requiredMessage="#{bundle.CreateIndividualRequiredMessage_name}"/>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{individualController.selected.email}" title="#{bundle.CreateIndividualTitle_email}" required="true" requiredMessage="#{bundle.CreateIndividualRequiredMessage_email}"/>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_address}" for="address" />
+                        <p:inputText id="address" value="#{individualController.selected.address}" title="#{bundle.CreateIndividualTitle_address}" />
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_phone1}" for="phone1" />
+                        <p:inputText id="phone1" value="#{individualController.selected.phone1}" title="#{bundle.CreateIndividualTitle_phone1}" required="true" requiredMessage="#{bundle.CreateIndividualRequiredMessage_phone1}"/>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_phone2}" for="phone2" />
+                        <p:inputText id="phone2" value="#{individualController.selected.phone2}" title="#{bundle.CreateIndividualTitle_phone2}" />
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_nationality}" for="nationality" />
+                        <p:inputText id="nationality" value="#{individualController.selected.nationality}" title="#{bundle.CreateIndividualTitle_nationality}" />
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_fkEmployeeId}" for="fkEmployeeId" />
+                        <p:selectOneMenu id="fkEmployeeId" value="#{individualController.selected.fkEmployeeId}" >
+                            <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
+                                           var="fkEmployeeIdItem"
+                                           itemValue="#{fkEmployeeIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_fkAccommodationId}" for="fkAccommodationId" />
+                        <p:selectOneMenu id="fkAccommodationId" value="#{individualController.selected.fkAccommodationId}" >
+                            <f:selectItems value="#{accommodationController.itemsAvailableSelectOne}"
+                                           var="fkAccommodationIdItem"
+                                           itemValue="#{fkAccommodationIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateIndividualLabel_accomodation}" for="accomodation" />
+                        <p:selectOneMenu id="accomodation" value="#{individualController.selected.accomodation}" >
+                            <f:selectItems value="#{accommodationController.itemsAvailableSelectOne}"
+                                           var="accomodationItem"
+                                           itemValue="#{accomodationItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{individualController.create}" value="#{bundle.Save}" update="display,:IndividualListForm:datalist,:growl" oncomplete="handleSubmit(args,'IndividualCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="IndividualCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

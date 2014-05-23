@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAccommodationTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="AccommodationListForm">
+                <p:panel header="#{bundle.ListAccommodationTitle}">
+                    <p:dataTable id="datalist" value="#{accommodationController.items}" var="item"
+                                 selectionMode="single" selection="#{accommodationController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_increase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.increase}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_transport}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.transport}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_discount}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.discount}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_price}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.price}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_source}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.source}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_observations}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observations}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_reasonTravel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.reasonTravel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_dependent}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dependent}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_quantityChild}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantityChild}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_nextDestination}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nextDestination}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_dateInput}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateInput}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_forecastOutput}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.forecastOutput}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_dateOutput}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateOutput}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_fkRoomId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fkRoomId}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_fkEmployeeId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fkEmployeeId}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAccommodationTitle_client}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.client}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{accommodationController.prepareCreate}" update=":AccommodationCreateForm" oncomplete="PF('AccommodationCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AccommodationViewForm" oncomplete="PF('AccommodationViewDialog').show()" disabled="#{empty accommodationController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":AccommodationEditForm" oncomplete="PF('AccommodationEditDialog').show()" disabled="#{empty accommodationController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{accommodationController.destroy}" update=":growl,datalist" disabled="#{empty accommodationController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

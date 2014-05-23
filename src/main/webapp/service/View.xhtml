@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServiceViewDlg" widgetVar="ServiceViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewServiceTitle}">
+            <h:form id="ServiceViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serviceController.selected != null}">
+                        <h:outputText value="#{bundle.ViewServiceLabel_id}"/>
+                        <h:outputText value="#{serviceController.selected.id}" title="#{bundle.ViewServiceTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewServiceLabel_description}"/>
+                        <h:outputText value="#{serviceController.selected.description}" title="#{bundle.ViewServiceTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewServiceLabel_price}"/>
+                        <h:outputText value="#{serviceController.selected.price}" title="#{bundle.ViewServiceTitle_price}"/>
+                        <h:outputText value="#{bundle.ViewServiceLabel_type}"/>
+                        <h:outputText value="#{serviceController.selected.type}" title="#{bundle.ViewServiceTitle_type}"/>
+                        <h:outputText value="#{bundle.ViewServiceLabel_dateTime}"/>
+                        <h:outputText value="#{serviceController.selected.dateTime}" title="#{bundle.ViewServiceTitle_dateTime}"/>
+                        <h:outputText value="#{bundle.ViewServiceLabel_fkEmployeeId}"/>
+                        <h:outputText value="#{serviceController.selected.fkEmployeeId}" title="#{bundle.ViewServiceTitle_fkEmployeeId}"/>
+                        <h:outputText value="#{bundle.ViewServiceLabel_fkClientId}"/>
+                        <h:outputText value="#{serviceController.selected.fkClientId}" title="#{bundle.ViewServiceTitle_fkClientId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ServiceViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

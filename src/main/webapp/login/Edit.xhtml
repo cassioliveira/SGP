@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LoginEditDlg" widgetVar="LoginEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditLoginTitle}">
+            <h:form id="LoginEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{loginController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditLoginLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{loginController.selected.id}" title="#{bundle.EditLoginTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditLoginLabel_serialVersionUID}" for="serialVersionUID" />
+                        <p:inputText id="serialVersionUID" value="#{loginController.selected.serialVersionUID}" title="#{bundle.EditLoginTitle_serialVersionUID}" />
+                        <p:outputLabel value="#{bundle.EditLoginLabel_user}" for="user" />
+                        <p:inputText id="user" value="#{loginController.selected.user}" title="#{bundle.EditLoginTitle_user}" required="true" requiredMessage="#{bundle.EditLoginRequiredMessage_user}"/>
+                        <p:outputLabel value="#{bundle.EditLoginLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{loginController.selected.password}" title="#{bundle.EditLoginTitle_password}" required="true" requiredMessage="#{bundle.EditLoginRequiredMessage_password}"/>
+                        <p:outputLabel value="#{bundle.EditLoginLabel_level}" for="level" />
+                        <p:inputText id="level" value="#{loginController.selected.level}" title="#{bundle.EditLoginTitle_level}" required="true" requiredMessage="#{bundle.EditLoginRequiredMessage_level}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{loginController.update}" value="#{bundle.Save}" update="display,:LoginListForm:datalist,:growl" oncomplete="handleSubmit(args, 'LoginEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="LoginEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

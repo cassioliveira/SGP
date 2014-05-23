@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CorporateViewDlg" widgetVar="CorporateViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCorporateTitle}">
+            <h:form id="CorporateViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{corporateController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCorporateLabel_id}"/>
+                        <h:outputText value="#{corporateController.selected.id}" title="#{bundle.ViewCorporateTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_fantasyName}"/>
+                        <h:outputText value="#{corporateController.selected.fantasyName}" title="#{bundle.ViewCorporateTitle_fantasyName}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_cnpj}"/>
+                        <h:outputText value="#{corporateController.selected.cnpj}" title="#{bundle.ViewCorporateTitle_cnpj}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_stateRegister}"/>
+                        <h:outputText value="#{corporateController.selected.stateRegister}" title="#{bundle.ViewCorporateTitle_stateRegister}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_municipalRegister}"/>
+                        <h:outputText value="#{corporateController.selected.municipalRegister}" title="#{bundle.ViewCorporateTitle_municipalRegister}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_id}"/>
+                        <h:outputText value="#{corporateController.selected.id}" title="#{bundle.ViewCorporateTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_name}"/>
+                        <h:outputText value="#{corporateController.selected.name}" title="#{bundle.ViewCorporateTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_email}"/>
+                        <h:outputText value="#{corporateController.selected.email}" title="#{bundle.ViewCorporateTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_address}"/>
+                        <h:outputText value="#{corporateController.selected.address}" title="#{bundle.ViewCorporateTitle_address}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_phone1}"/>
+                        <h:outputText value="#{corporateController.selected.phone1}" title="#{bundle.ViewCorporateTitle_phone1}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_phone2}"/>
+                        <h:outputText value="#{corporateController.selected.phone2}" title="#{bundle.ViewCorporateTitle_phone2}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_nationality}"/>
+                        <h:outputText value="#{corporateController.selected.nationality}" title="#{bundle.ViewCorporateTitle_nationality}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_fkEmployeeId}"/>
+                        <h:outputText value="#{corporateController.selected.fkEmployeeId}" title="#{bundle.ViewCorporateTitle_fkEmployeeId}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_fkAccommodationId}"/>
+                        <h:outputText value="#{corporateController.selected.fkAccommodationId}" title="#{bundle.ViewCorporateTitle_fkAccommodationId}"/>
+                        <h:outputText value="#{bundle.ViewCorporateLabel_accomodation}"/>
+                        <h:outputText value="#{corporateController.selected.accomodation}" title="#{bundle.ViewCorporateTitle_accomodation}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CorporateViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

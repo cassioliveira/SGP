@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CorporateCreateDlg" widgetVar="CorporateCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCorporateTitle}">
+            <h:form id="CorporateCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{corporateController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{corporateController.selected.id}" title="#{bundle.CreateCorporateTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_fantasyName}" for="fantasyName" />
+                        <p:inputText id="fantasyName" value="#{corporateController.selected.fantasyName}" title="#{bundle.CreateCorporateTitle_fantasyName}" required="true" requiredMessage="#{bundle.CreateCorporateRequiredMessage_fantasyName}"/>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_cnpj}" for="cnpj" />
+                        <p:inputText id="cnpj" value="#{corporateController.selected.cnpj}" title="#{bundle.CreateCorporateTitle_cnpj}" required="true" requiredMessage="#{bundle.CreateCorporateRequiredMessage_cnpj}"/>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_stateRegister}" for="stateRegister" />
+                        <p:inputText id="stateRegister" value="#{corporateController.selected.stateRegister}" title="#{bundle.CreateCorporateTitle_stateRegister}" required="true" requiredMessage="#{bundle.CreateCorporateRequiredMessage_stateRegister}"/>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_municipalRegister}" for="municipalRegister" />
+                        <p:inputText id="municipalRegister" value="#{corporateController.selected.municipalRegister}" title="#{bundle.CreateCorporateTitle_municipalRegister}" required="true" requiredMessage="#{bundle.CreateCorporateRequiredMessage_municipalRegister}"/>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{corporateController.selected.id}" title="#{bundle.CreateCorporateTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{corporateController.selected.name}" title="#{bundle.CreateCorporateTitle_name}" required="true" requiredMessage="#{bundle.CreateCorporateRequiredMessage_name}"/>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{corporateController.selected.email}" title="#{bundle.CreateCorporateTitle_email}" required="true" requiredMessage="#{bundle.CreateCorporateRequiredMessage_email}"/>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_address}" for="address" />
+                        <p:inputText id="address" value="#{corporateController.selected.address}" title="#{bundle.CreateCorporateTitle_address}" />
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_phone1}" for="phone1" />
+                        <p:inputText id="phone1" value="#{corporateController.selected.phone1}" title="#{bundle.CreateCorporateTitle_phone1}" required="true" requiredMessage="#{bundle.CreateCorporateRequiredMessage_phone1}"/>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_phone2}" for="phone2" />
+                        <p:inputText id="phone2" value="#{corporateController.selected.phone2}" title="#{bundle.CreateCorporateTitle_phone2}" />
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_nationality}" for="nationality" />
+                        <p:inputText id="nationality" value="#{corporateController.selected.nationality}" title="#{bundle.CreateCorporateTitle_nationality}" />
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_fkEmployeeId}" for="fkEmployeeId" />
+                        <p:selectOneMenu id="fkEmployeeId" value="#{corporateController.selected.fkEmployeeId}" >
+                            <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
+                                           var="fkEmployeeIdItem"
+                                           itemValue="#{fkEmployeeIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_fkAccommodationId}" for="fkAccommodationId" />
+                        <p:selectOneMenu id="fkAccommodationId" value="#{corporateController.selected.fkAccommodationId}" >
+                            <f:selectItems value="#{accommodationController.itemsAvailableSelectOne}"
+                                           var="fkAccommodationIdItem"
+                                           itemValue="#{fkAccommodationIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCorporateLabel_accomodation}" for="accomodation" />
+                        <p:selectOneMenu id="accomodation" value="#{corporateController.selected.accomodation}" >
+                            <f:selectItems value="#{accommodationController.itemsAvailableSelectOne}"
+                                           var="accomodationItem"
+                                           itemValue="#{accomodationItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{corporateController.create}" value="#{bundle.Save}" update="display,:CorporateListForm:datalist,:growl" oncomplete="handleSubmit(args,'CorporateCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CorporateCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

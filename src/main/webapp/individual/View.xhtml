@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IndividualViewDlg" widgetVar="IndividualViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewIndividualTitle}">
+            <h:form id="IndividualViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{individualController.selected != null}">
+                        <h:outputText value="#{bundle.ViewIndividualLabel_id}"/>
+                        <h:outputText value="#{individualController.selected.id}" title="#{bundle.ViewIndividualTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_gender}"/>
+                        <h:outputText value="#{individualController.selected.gender}" title="#{bundle.ViewIndividualTitle_gender}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_cpf}"/>
+                        <h:outputText value="#{individualController.selected.cpf}" title="#{bundle.ViewIndividualTitle_cpf}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_docTravelNumber}"/>
+                        <h:outputText value="#{individualController.selected.docTravelNumber}" title="#{bundle.ViewIndividualTitle_docTravelNumber}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_travelDocType}"/>
+                        <h:outputText value="#{individualController.selected.travelDocType}" title="#{bundle.ViewIndividualTitle_travelDocType}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_issuingBoddy}"/>
+                        <h:outputText value="#{individualController.selected.issuingBoddy}" title="#{bundle.ViewIndividualTitle_issuingBoddy}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_profession}"/>
+                        <h:outputText value="#{individualController.selected.profession}" title="#{bundle.ViewIndividualTitle_profession}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_birthDate}"/>
+                        <h:outputText value="#{individualController.selected.birthDate}" title="#{bundle.ViewIndividualTitle_birthDate}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_id}"/>
+                        <h:outputText value="#{individualController.selected.id}" title="#{bundle.ViewIndividualTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_name}"/>
+                        <h:outputText value="#{individualController.selected.name}" title="#{bundle.ViewIndividualTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_email}"/>
+                        <h:outputText value="#{individualController.selected.email}" title="#{bundle.ViewIndividualTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_address}"/>
+                        <h:outputText value="#{individualController.selected.address}" title="#{bundle.ViewIndividualTitle_address}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_phone1}"/>
+                        <h:outputText value="#{individualController.selected.phone1}" title="#{bundle.ViewIndividualTitle_phone1}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_phone2}"/>
+                        <h:outputText value="#{individualController.selected.phone2}" title="#{bundle.ViewIndividualTitle_phone2}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_nationality}"/>
+                        <h:outputText value="#{individualController.selected.nationality}" title="#{bundle.ViewIndividualTitle_nationality}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_fkEmployeeId}"/>
+                        <h:outputText value="#{individualController.selected.fkEmployeeId}" title="#{bundle.ViewIndividualTitle_fkEmployeeId}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_fkAccommodationId}"/>
+                        <h:outputText value="#{individualController.selected.fkAccommodationId}" title="#{bundle.ViewIndividualTitle_fkAccommodationId}"/>
+                        <h:outputText value="#{bundle.ViewIndividualLabel_accomodation}"/>
+                        <h:outputText value="#{individualController.selected.accomodation}" title="#{bundle.ViewIndividualTitle_accomodation}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="IndividualViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

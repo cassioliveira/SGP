@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReservationViewDlg" widgetVar="ReservationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewReservationTitle}">
+            <h:form id="ReservationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reservationController.selected != null}">
+                        <h:outputText value="#{bundle.ViewReservationLabel_id}"/>
+                        <h:outputText value="#{reservationController.selected.id}" title="#{bundle.ViewReservationTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_dateInput}"/>
+                        <h:outputText value="#{reservationController.selected.dateInput}" title="#{bundle.ViewReservationTitle_dateInput}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_forecastOutput}"/>
+                        <h:outputText value="#{reservationController.selected.forecastOutput}" title="#{bundle.ViewReservationTitle_forecastOutput}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_roomType}"/>
+                        <h:outputText value="#{reservationController.selected.roomType}" title="#{bundle.ViewReservationTitle_roomType}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_dependent}"/>
+                        <h:outputText value="#{reservationController.selected.dependent}" title="#{bundle.ViewReservationTitle_dependent}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_quantityChild}"/>
+                        <h:outputText value="#{reservationController.selected.quantityChild}" title="#{bundle.ViewReservationTitle_quantityChild}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_fkEmployeeId}"/>
+                        <h:outputText value="#{reservationController.selected.fkEmployeeId}" title="#{bundle.ViewReservationTitle_fkEmployeeId}"/>
+                        <h:outputText value="#{bundle.ViewReservationLabel_fkClientId}"/>
+                        <h:outputText value="#{reservationController.selected.fkClientId}" title="#{bundle.ViewReservationTitle_fkClientId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ReservationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
