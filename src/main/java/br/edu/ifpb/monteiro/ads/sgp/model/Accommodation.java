@@ -41,9 +41,15 @@ public class Accommodation implements Serializable {
 
     @Column(name = "acc_status", nullable = false, length = 1)
     private boolean status;
+    
+    @Column(name = "acc_payed", nullable = false, length = 1)
+    private boolean payed;
 
     @Column(name = "acc_checkout", nullable = false, length = 1)
     private boolean checkout;
+    
+    @Column(name = "acc_missing_item", length = 255)
+    private String missingItem;
 
     @Column(name = "acc_increase", length = 10)
     private double increase;

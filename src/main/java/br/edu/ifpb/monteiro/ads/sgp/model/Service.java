@@ -41,7 +41,7 @@ public class Service implements Serializable {
     @Column(name = "service_description", nullable = false, length = 255)
     private String description;
 
-    @Column(name = "service_price", nullable = false)
+    @Column(name = "service_price", nullable = false, length = 10)
     private double price;
 
     @Column(name = "service_type", length = 50)
