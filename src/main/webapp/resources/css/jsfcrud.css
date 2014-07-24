@@ -2,8 +2,9 @@
     font-size: 12px !important;
 }
 .ui-layout-north {
+    padding-bottom: 20px;
     z-index: 20 !important;
-    overflow: visible !important;;
+    overflow: hidden !important;;
 }
 .ui-layout-north .ui-layout-unit-content {
     overflow: visible !important;
@@ -19,4 +20,30 @@
 
 .ui-button {
     margin-top: 10px !important;
+}
+
+#logo_top{
+
+    alignment-adjust: middle;
+    margin-left: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+#top_panel{
+    padding-bottom:10px;
+
+}
+
+#top_unity{
+    background: -webkit-linear-gradient(left, red , blue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, red, blue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, red, blue); /* For Firefox 3.6 to 15 */
+}
+
+#top_label{
+    alignment-baseline: middle;
+    alignment-adjust: auto;
+    margin-right: 20px;
+    color: #036fab;
 }
