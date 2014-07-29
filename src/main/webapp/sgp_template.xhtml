@@ -24,8 +24,8 @@
             </div>
 
             <div id="div_buttons" style="float: right;margin-top: 70px;">
-                <p:button value="Sair" styleClass="button_top_bar"></p:button>
-                <p:button value="Trocar Usuário" styleClass="button_top_bar"></p:button>
+                <p:button value="Sair"></p:button>
+                <p:button value="Trocar Usuário"></p:button>
             </div>
             <div id="client_bio_div" style="margin-top: 10px;">
                 <h2><h:outputLabel value="#{establishment.Name}" style="margin-left: 20px" /> </h2>
@@ -34,15 +34,28 @@
                 <h3><h:outputLabel value="#{establishment.Phone}" style="margin-left: 20px" /> </h3>
             </div>
         </header>
+        <div id="div_menu_bar">
+            <p:menubar>
+                <p:submenu label="#{bundle.EntityClient}">
+                    <p:menuitem value="#{bundle.CreateClientTitle}"/>
+                    <p:submenu label="#{bundle.ViewClientShowAllLink}"/>
+                <p:submenu label="#{bundle.EntityReservation}"/>
+                <p:submenu label="#{bundle.EntityService}"/>
+                <p:submenu label="#{bundle.EntityEmployee}"/>
+            </p:menubar>
 
-        <div id="content" class="center_content">
-            <ui:insert name="content">Content</ui:insert>
         </div>
 
-        <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+        <div id="content">
+            <ui:insert name="content"></ui:insert>
         </div>
 
+        <footer>
+            <div id="bottom" >
+                <h5><p:outputLabel value="#{bundle.AppName}" style="margin-top: 5px;margin-left: 10px;float: left;color: #4AA02C;"/></h5>
+                <h5><p:outputLabel value="#{bundle.TeamSignature}" style="margin-top: 5px;margin-right: 10px;float: right;color: #4AA02C;"/></h5>
+            </div>
+        </footer>
     </h:body>
 
 </html>
