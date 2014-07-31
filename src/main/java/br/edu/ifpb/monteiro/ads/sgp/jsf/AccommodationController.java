@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class AccommodationController implements Serializable {
 
     @EJB
-    private br.edu.ifpb.monteiro.ads.sgp.dao.AccommodationFacade ejbFacade;
+    private AccommodationFacade ejbFacade;
     private List<Accommodation> items = null;
     private Accommodation selected;
 
