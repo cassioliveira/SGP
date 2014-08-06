@@ -6,7 +6,7 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
-import br.edu.ifpb.monteiro.ads.sgp.model.Login;
+import br.edu.ifpb.monteiro.ads.sgp.model.Reservation;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * @author cassio
  */
 @Stateless
-public class LoginFacade extends AbstractFacade<Login> {
+public class ReservationDAO extends AbstractDAO<Reservation> {
     @PersistenceContext(unitName = "br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 
@@ -25,8 +25,8 @@ public class LoginFacade extends AbstractFacade<Login> {
         return em;
     }
 
-    public LoginFacade() {
-        super(Login.class);
+    public ReservationDAO() {
+        super(Reservation.class);
     }
     
 }

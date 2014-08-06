@@ -3,7 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.jsf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Service;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.ServiceFacade;
+import br.edu.ifpb.monteiro.ads.sgp.dao.ServiceDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class ServiceController implements Serializable {
 
     @EJB
-    private br.edu.ifpb.monteiro.ads.sgp.dao.ServiceFacade ejbFacade;
+    private br.edu.ifpb.monteiro.ads.sgp.dao.ServiceDAO ejbFacade;
     private List<Service> items = null;
     private Service selected;
 
@@ -45,7 +45,7 @@ public class ServiceController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private ServiceFacade getFacade() {
+    private ServiceDAO getFacade() {
         return ejbFacade;
     }
 

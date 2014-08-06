@@ -3,7 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.jsf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Individual;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.IndividualFacade;
+import br.edu.ifpb.monteiro.ads.sgp.dao.IndividualDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class IndividualController implements Serializable {
 
     @EJB
-    private br.edu.ifpb.monteiro.ads.sgp.dao.IndividualFacade ejbFacade;
+    private br.edu.ifpb.monteiro.ads.sgp.dao.IndividualDAO ejbFacade;
     private List<Individual> items = null;
     private Individual selected;
 
@@ -45,7 +45,7 @@ public class IndividualController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private IndividualFacade getFacade() {
+    private IndividualDAO getFacade() {
         return ejbFacade;
     }
 

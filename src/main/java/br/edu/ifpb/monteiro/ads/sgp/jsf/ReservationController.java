@@ -3,7 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.jsf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Reservation;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.ReservationFacade;
+import br.edu.ifpb.monteiro.ads.sgp.dao.ReservationDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class ReservationController implements Serializable {
 
     @EJB
-    private br.edu.ifpb.monteiro.ads.sgp.dao.ReservationFacade ejbFacade;
+    private br.edu.ifpb.monteiro.ads.sgp.dao.ReservationDAO ejbFacade;
     private List<Reservation> items = null;
     private Reservation selected;
 
@@ -45,7 +45,7 @@ public class ReservationController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private ReservationFacade getFacade() {
+    private ReservationDAO getFacade() {
         return ejbFacade;
     }
 

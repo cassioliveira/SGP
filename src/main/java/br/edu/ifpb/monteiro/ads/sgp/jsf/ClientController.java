@@ -3,7 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.jsf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Client;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.ClientFacade;
+import br.edu.ifpb.monteiro.ads.sgp.dao.ClientDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class ClientController implements Serializable {
 
     @EJB
-    private br.edu.ifpb.monteiro.ads.sgp.dao.ClientFacade ejbFacade;
+    private br.edu.ifpb.monteiro.ads.sgp.dao.ClientDAO ejbFacade;
     private List<Client> items = null;
     private Client selected;
 
@@ -45,7 +45,7 @@ public class ClientController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private ClientFacade getFacade() {
+    private ClientDAO getFacade() {
         return ejbFacade;
     }
 

@@ -3,7 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.jsf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Accommodation;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.AccommodationFacade;
+import br.edu.ifpb.monteiro.ads.sgp.dao.AccommodationDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class AccommodationController implements Serializable {
 
     @EJB
-    private AccommodationFacade ejbFacade;
+    private AccommodationDAO ejbFacade;
     private List<Accommodation> items = null;
     private Accommodation selected;
 
@@ -45,7 +45,7 @@ public class AccommodationController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private AccommodationFacade getFacade() {
+    private AccommodationDAO getFacade() {
         return ejbFacade;
     }
 

@@ -3,7 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.jsf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Room;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.RoomFacade;
+import br.edu.ifpb.monteiro.ads.sgp.dao.RoomDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class RoomController implements Serializable {
 
     @EJB
-    private br.edu.ifpb.monteiro.ads.sgp.dao.RoomFacade ejbFacade;
+    private br.edu.ifpb.monteiro.ads.sgp.dao.RoomDAO ejbFacade;
     private List<Room> items = null;
     private Room selected;
 
@@ -45,7 +45,7 @@ public class RoomController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private RoomFacade getFacade() {
+    private RoomDAO getFacade() {
         return ejbFacade;
     }
 

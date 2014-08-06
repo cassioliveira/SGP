@@ -3,7 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.jsf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Login;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.LoginFacade;
+import br.edu.ifpb.monteiro.ads.sgp.dao.LoginDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class LoginController implements Serializable {
 
     @EJB
-    private br.edu.ifpb.monteiro.ads.sgp.dao.LoginFacade ejbFacade;
+    private br.edu.ifpb.monteiro.ads.sgp.dao.LoginDAO ejbFacade;
     private List<Login> items = null;
     private Login selected;
 
@@ -45,7 +45,7 @@ public class LoginController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private LoginFacade getFacade() {
+    private LoginDAO getFacade() {
         return ejbFacade;
     }
 

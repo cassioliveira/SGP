@@ -3,7 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.jsf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Employee;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.EmployeeFacade;
+import br.edu.ifpb.monteiro.ads.sgp.dao.EmployeeDAO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ import javax.faces.convert.FacesConverter;
 public class EmployeeController implements Serializable {
 
     @EJB
-    private br.edu.ifpb.monteiro.ads.sgp.dao.EmployeeFacade ejbFacade;
+    private br.edu.ifpb.monteiro.ads.sgp.dao.EmployeeDAO ejbFacade;
     private List<Employee> items = null;
     private Employee selected;
 
@@ -45,7 +45,7 @@ public class EmployeeController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private EmployeeFacade getFacade() {
+    private EmployeeDAO getFacade() {
         return ejbFacade;
     }
 
