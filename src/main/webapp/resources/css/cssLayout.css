@@ -1,34 +1,10 @@
-#left {
-    float: left;
-    background-color: #ece3a5;
-    padding: 5px;
-    width: 150px;
-}
 
-#right {
-    float: right;
-    background-color: #ece3a5;
-    padding: 5px;
-    width: 150px;
-}
 
 .center_content {
-    position: relative;
     background-color: #dddddd;
     padding: 5px;
 }
 
-.left_content {
-    background-color: #dddddd;
-    padding: 5px;
-    margin-left: 170px;
-}
-
-.right_content {
-    background-color: #dddddd;
-    padding: 5px;
-    margin: 0px 170px 0px 170px;
-}
 
 #top a:link, #top a:visited {
     font-weight : bold;
@@ -47,9 +23,23 @@
     height: 145px;
 }
 
+.logo_sys_top{
+    position: relative;
+    margin-right: 10px;
+    margin-top: 12px;
+    width: 220px;
+    height: 114px;
+    float: right;
+}
+
 .ui-menubar .ui-menuitem {
     font-family: Verdana, Geneva, sans-serif;
     font-weight: bold;
+
+}
+
+#logo_sys_div{
+    float: none;
 
 }
 

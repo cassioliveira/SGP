@@ -10,17 +10,19 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.FlowEvent;
 import br.edu.ifpb.monteiro.ads.sgp.model.Client;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
  * @author WitaloCarlos
  */
-@ManagedBean
-@ViewScoped
-public class ClientWizard implements Serializable {
+@Named("clientBean")
+@RequestScoped
+public class ClientBean implements Serializable {
 
+    @Inject
     private Client client;
 
     private boolean skip;

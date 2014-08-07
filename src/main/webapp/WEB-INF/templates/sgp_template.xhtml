@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>#{bundle.AppName}</title>
+    </h:head>
+
+
+    <h:body>
+        <header>
+            <div id="logo_div">
+                <h:graphicImage library="images" name="logo.png" styleClass="logo_top"/>
+            </div>
+
+            <div id="label_sys_div">
+                <h:graphicImage library="images" name="hotel_sys_transp.png" styleClass="logo_sys_top"/>
+            </div>
+
+            <div id="client_bio_div" style="margin-top: 40px;">
+                <h2><h:outputLabel value="#{establishment.Name}" style="margin-left: 20px" /> </h2>
+                <h3><h:outputLabel value="#{establishment.Address}" style="margin-left: 20px" /> </h3>
+                <h3><h:outputLabel value="#{establishment.Mail}" style="margin-left: 20px" /> </h3>
+                <h3><h:outputLabel value="#{establishment.Phone}" style="margin-left: 20px" /> </h3>
+            </div>
+        </header>
+
+
+        <div id="div_menu_bar">
+            <h:form style="padding: 1px;">
+                <p:menubar>
+                    <p:submenu label="#{bundle.EntityClient}"/>
+                    <p:submenu label="#{bundle.EntityReservation}"/>
+                    <p:submenu label="#{bundle.EntityService}"/>
+                    <p:submenu label="#{bundle.EntityEmployee}"/>
+                    <f:facet name="options">
+
+                        <p:commandButton type="button" value="Configurações" />
+                        <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+
+                    </f:facet>
+
+                </p:menubar>
+            </h:form>
+        </div>
+
+        <div id="content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+
+        <footer>
+            <div id="bottom" >
+                <h5><p:outputLabel value="#{bundle.AppName}" style="margin-top: 5px;margin-left: 10px;float: left;color: #4AA02C;"/></h5>
+                <h5><p:outputLabel value="#{bundle.TeamSignature}" style="margin-top: 5px;margin-right: 10px;float: right;color: #4AA02C;"/></h5>
+            </div>
+        </footer>
+    </h:body>
+
+</html>
