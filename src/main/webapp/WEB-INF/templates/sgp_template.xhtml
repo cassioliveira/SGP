@@ -9,11 +9,14 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
         <title>#{bundle.AppName}</title>
     </h:head>
 
 
     <h:body>
+        <p:growl id="growl" life="3000" />
+
         <header>
             <div id="logo_div">
                 <h:graphicImage library="images" name="logo.png" styleClass="logo_top"/>
