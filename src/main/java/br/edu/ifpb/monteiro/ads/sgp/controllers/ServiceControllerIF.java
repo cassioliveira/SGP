@@ -10,6 +10,6 @@ package br.edu.ifpb.monteiro.ads.sgp.controllers;
  *
  * @author WitaloCarlos
  */
-public interface ServiceControllerIF extends AbstractControllerIF{
+public interface ServiceControllerIF extends GenericControllerIF{
     
 }

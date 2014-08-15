@@ -17,7 +17,7 @@ import javax.inject.Inject;
 
 @Named("reservationController")
 @SessionScoped
-public class ReservationController extends AbstractController<Reservation> implements ReservationControllerIF {
+public class ReservationController extends GenericController<Reservation> implements ReservationControllerIF {
 
    @Inject
     private ReservationServicesIF services;

@@ -17,7 +17,7 @@ import javax.inject.Inject;
 
 @Named("serviceController")
 @SessionScoped
-public class ServiceController extends AbstractController<Service> implements ServiceControllerIF {
+public class ServiceController extends GenericController<Service> implements ServiceControllerIF {
 
     
     @Inject

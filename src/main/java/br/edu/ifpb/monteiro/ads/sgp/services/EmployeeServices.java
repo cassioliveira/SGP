@@ -6,21 +6,23 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.EmployeeDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Employee;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
  *
  * @author WitaloCarlos
  */
-@RequestScoped
+@SessionScoped
 public class EmployeeServices implements EmployeeServicesIF {
 
     @Inject
+    @Employee
     private EmployeeDaoIF employeeDao;
-    
+
     @Override
     public int count() {
         return employeeDao.count();
@@ -56,5 +58,4 @@ public class EmployeeServices implements EmployeeServicesIF {
         employeeDao.remove(entity);
     }
 
-    
 }

@@ -6,13 +6,14 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author WitaloCarlos
  */
-public interface ServicesIF {
+public interface ServicesIF extends Serializable{
 
     int count();
 

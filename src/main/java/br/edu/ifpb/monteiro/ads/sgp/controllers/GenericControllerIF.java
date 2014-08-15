@@ -12,6 +12,6 @@ import java.io.Serializable;
  *
  * @author WitaloCarlos
  */
-public interface AbstractControllerIF extends Serializable{
+public interface GenericControllerIF extends Serializable{
     
 }

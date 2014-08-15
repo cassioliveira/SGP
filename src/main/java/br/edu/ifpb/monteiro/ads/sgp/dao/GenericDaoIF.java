@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author WitaloCarlos
  */
-public interface AbstractDaoIF {
+
+public interface GenericDaoIF extends Serializable {
 
     int count();
 
@@ -28,5 +29,5 @@ public interface AbstractDaoIF {
     List<Identifiable> findRange(int[] range);
 
     void remove(Identifiable entity);
-    
+
 }

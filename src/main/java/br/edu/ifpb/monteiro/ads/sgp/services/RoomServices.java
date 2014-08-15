@@ -6,19 +6,20 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.RoomDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Room;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
  *
  * @author WitaloCarlos
  */
-@RequestScoped
+@SessionScoped
 public class RoomServices implements RoomServicesIF {
 
-    @Inject
+    @Inject @Room
     private RoomDaoIF roomDao;
     
     @Override

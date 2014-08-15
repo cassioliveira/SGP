@@ -3,25 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
+import javax.enterprise.context.Dependent;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Default;
+import javax.enterprise.inject.Disposes;
+import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author cassio
+ * @param <T>
  */
-public abstract class AbstractDAO<T extends Identifiable> implements AbstractDaoIF {
+@Default
+@Dependent
+public class GenericDAO<T extends Identifiable> implements GenericDaoIF {
+
     private Class<T> entityClass;
 
-    public AbstractDAO(Class<T> entityClass) {
+    public GenericDAO() {
+    }
+
+    public GenericDAO(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
-    protected abstract EntityManager getEntityManager();
+    private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU");
+
+    @Produces
+    @SessionScoped
+    protected EntityManager getEntityManager() {
+        return factory.createEntityManager();
+    }
+    
+    public void close(@Disposes EntityManager em) {
+		em.close();
+	}
 
     @Override
     public void create(Identifiable entity) {
@@ -68,5 +92,5 @@ public abstract class AbstractDAO<T extends Identifiable> implements AbstractDao
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
 }

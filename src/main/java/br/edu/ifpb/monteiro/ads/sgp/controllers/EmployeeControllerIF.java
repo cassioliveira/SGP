@@ -10,6 +10,6 @@ package br.edu.ifpb.monteiro.ads.sgp.controllers;
  *
  * @author WitaloCarlos
  */
-public interface EmployeeControllerIF extends AbstractControllerIF{
+public interface EmployeeControllerIF extends GenericControllerIF{
     
 }

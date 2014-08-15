@@ -2,7 +2,6 @@ package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Corporate;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
-import br.edu.ifpb.monteiro.ads.sgp.services.AccommodationServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.CorporateServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 
@@ -18,7 +17,7 @@ import javax.inject.Inject;
 
 @Named("corporateController")
 @SessionScoped
-public class CorporateController extends AbstractController<Corporate> implements CorporateControllerIF {
+public class CorporateController extends GenericController<Corporate> implements CorporateControllerIF {
 
     @Inject
     private CorporateServicesIF services;

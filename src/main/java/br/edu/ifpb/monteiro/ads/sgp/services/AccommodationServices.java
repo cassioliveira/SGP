@@ -6,19 +6,20 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.AccomodationDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Accomodation;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
  *
  * @author WitaloCarlos
  */
-@RequestScoped
-public class AccomodationServices implements AccommodationServicesIF {
+@SessionScoped
+public class AccommodationServices implements AccommodationServicesIF {
 
-    @Inject
+    @Inject @Accomodation
     private AccomodationDaoIF accommodationDao;
     
     @Override

@@ -1,22 +1,12 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Employee;
-import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
-import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil.PersistAction;
-import br.edu.ifpb.monteiro.ads.sgp.dao.EmployeeDAO;
-import br.edu.ifpb.monteiro.ads.sgp.model.Accommodation;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
-import br.edu.ifpb.monteiro.ads.sgp.services.AccommodationServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.EmployeeServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.EJB;
-import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
@@ -27,7 +17,7 @@ import javax.inject.Inject;
 
 @Named("employeeController")
 @SessionScoped
-public class EmployeeController extends AbstractController<Employee> implements EmployeeControllerIF {
+public class EmployeeController extends GenericController<Employee> implements EmployeeControllerIF {
 
    @Inject
     private EmployeeServicesIF services;

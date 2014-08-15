@@ -10,6 +10,6 @@ package br.edu.ifpb.monteiro.ads.sgp.controllers;
  *
  * @author WitaloCarlos
  */
-public interface RoomControllerIF extends AbstractControllerIF{
+public interface RoomControllerIF extends GenericControllerIF{
     
 }

@@ -10,6 +10,6 @@ package br.edu.ifpb.monteiro.ads.sgp.controllers;
  *
  * @author WitaloCarlos
  */
-public interface ClientControllerIF extends AbstractControllerIF{
+public interface ClientControllerIF extends GenericControllerIF{
     
 }

@@ -7,23 +7,14 @@
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Login;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author cassio
  */
-public class LoginDAO extends AbstractDAO<Login> implements LoginDaoIF{
-    @PersistenceContext(unitName = "br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU")
-    private EntityManager em;
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
-
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Login
+public class LoginDAO extends GenericDAO<Login> implements LoginDaoIF{
+    
     public LoginDAO() {
         super(Login.class);
     }

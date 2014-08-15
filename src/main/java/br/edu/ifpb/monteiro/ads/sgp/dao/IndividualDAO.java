@@ -7,22 +7,15 @@
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Individual;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author cassio
  */
-public class IndividualDAO extends AbstractDAO<Individual> implements IndividualDaoIF{
-    @PersistenceContext(unitName = "br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU")
-    private EntityManager em;
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Individual
+public class IndividualDAO extends GenericDAO<Individual> implements IndividualDaoIF{
+   
+    
 
     public IndividualDAO() {
         super(Individual.class);

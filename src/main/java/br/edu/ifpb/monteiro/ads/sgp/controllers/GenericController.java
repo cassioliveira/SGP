@@ -13,14 +13,13 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJBException;
-import javax.inject.Inject;
 
 /**
  *
  * @author WitaloCarlos
  * @param <T>
  */
-public abstract class AbstractController<T extends Identifiable> implements AbstractControllerIF {
+public abstract class GenericController<T extends Identifiable> implements GenericControllerIF {
 
     /**
      *
@@ -30,7 +29,7 @@ public abstract class AbstractController<T extends Identifiable> implements Abst
     
     private Identifiable selected;
 
-    public AbstractController() {
+    public GenericController() {
     }
 
     public Identifiable getSelected() {

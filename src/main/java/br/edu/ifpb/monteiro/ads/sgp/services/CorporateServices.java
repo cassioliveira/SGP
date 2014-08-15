@@ -6,19 +6,20 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.CorporateDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Corporate;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
  *
  * @author WitaloCarlos
  */
-@RequestScoped
+@SessionScoped
 public class CorporateServices implements CorporateServicesIF {
 
-    @Inject
+    @Inject @Corporate
     private CorporateDaoIF corporateDao;
     
     @Override

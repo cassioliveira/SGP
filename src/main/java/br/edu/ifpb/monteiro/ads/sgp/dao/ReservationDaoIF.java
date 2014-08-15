@@ -10,6 +10,6 @@ package br.edu.ifpb.monteiro.ads.sgp.dao;
  *
  * @author WitaloCarlos
  */
-public interface ReservationDaoIF extends AbstractDaoIF{
+public interface ReservationDaoIF extends GenericDaoIF{
     
 }

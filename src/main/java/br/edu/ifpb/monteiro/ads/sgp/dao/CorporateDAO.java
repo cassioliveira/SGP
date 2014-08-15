@@ -7,24 +7,15 @@
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Corporate;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author cassio
  */
-@Stateless
-public class CorporateDAO extends AbstractDAO<Corporate> implements CorporateDaoIF{
-    @PersistenceContext(unitName = "br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU")
-    private EntityManager em;
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
-
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Corporate
+public class CorporateDAO extends GenericDAO<Corporate> implements CorporateDaoIF{
+   
+    
     public CorporateDAO() {
         super(Corporate.class);
     }

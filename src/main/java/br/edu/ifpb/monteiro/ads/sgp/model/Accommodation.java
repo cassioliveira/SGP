@@ -5,7 +5,6 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
-import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.Column;

@@ -10,6 +10,6 @@ package br.edu.ifpb.monteiro.ads.sgp.dao;
  *
  * @author WitaloCarlos
  */
-public interface ClientDaoIF extends AbstractDaoIF{
+public interface ClientDaoIF extends GenericDaoIF{
     
 }

@@ -17,7 +17,7 @@ import javax.inject.Inject;
 
 @Named("loginController")
 @SessionScoped
-public class LoginController extends AbstractController<Login> implements LoginControllerIF {
+public class LoginController extends GenericController<Login> implements LoginControllerIF {
 
     @Inject
     private LoginServicesIF services;

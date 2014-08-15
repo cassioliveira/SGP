@@ -6,19 +6,20 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.IndividualDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Individual;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
  *
  * @author WitaloCarlos
  */
-@RequestScoped
+@SessionScoped
 public class IndividualServices implements IndividualServicesIF {
 
-    @Inject
+    @Inject @Individual
     private IndividualDaoIF individualDao;
     
     @Override

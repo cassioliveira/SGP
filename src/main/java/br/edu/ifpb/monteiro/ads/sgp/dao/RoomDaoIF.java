@@ -10,6 +10,6 @@ package br.edu.ifpb.monteiro.ads.sgp.dao;
  *
  * @author WitaloCarlos
  */
-public interface RoomDaoIF extends AbstractDaoIF{
+public interface RoomDaoIF extends GenericDaoIF{
     
 }

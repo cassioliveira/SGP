@@ -6,19 +6,20 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.ServiceDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Service;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
  *
  * @author WitaloCarlos
  */
-@RequestScoped
+@SessionScoped
 public class ServiceServices implements ServiceServicesIF {
 
-    @Inject
+    @Inject @Service
     private ServiceDaoIF serviceDao;
     
     @Override
