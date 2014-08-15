@@ -30,7 +30,7 @@ import javax.persistence.Table;
 @Table(name = "Client")
 @Inheritance(strategy = InheritanceType.JOINED)
 @PrimaryKeyJoinColumn(name = "id")
-public class Client implements Serializable {
+public class Client implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id

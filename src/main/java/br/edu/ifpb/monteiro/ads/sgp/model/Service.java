@@ -31,7 +31,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Service")
 @PrimaryKeyJoinColumn(name = "id")
-public class Service implements Serializable {
+public class Service implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id

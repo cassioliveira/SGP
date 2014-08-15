@@ -21,7 +21,7 @@ import javax.persistence.ManyToOne;
  * @author Wilde Arruda
  */
 @Entity
-public class Login implements Serializable {
+public class Login implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id

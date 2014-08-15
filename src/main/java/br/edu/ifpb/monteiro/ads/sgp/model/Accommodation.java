@@ -32,7 +32,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Accommodation")
 @PrimaryKeyJoinColumn(name = "id")
-public class Accommodation implements Serializable {
+public class Accommodation implements Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id

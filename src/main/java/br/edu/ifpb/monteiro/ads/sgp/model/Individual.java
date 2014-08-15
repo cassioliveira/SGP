@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
-public class Individual extends Client implements Serializable {
+public class Individual extends Client implements Serializable, Identifiable{
 
     private static final long serialVersionUID = 1L;
     @Id

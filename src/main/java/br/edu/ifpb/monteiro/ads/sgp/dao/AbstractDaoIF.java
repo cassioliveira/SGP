@@ -6,26 +6,27 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
 
 /**
  *
  * @author WitaloCarlos
  */
-public interface AbstractDaoIF<T> {
+public interface AbstractDaoIF {
 
     int count();
 
-    void create(T entity);
+    void create(Identifiable entity);
 
-    void edit(T entity);
+    void edit(Identifiable entity);
 
-    T find(Object id);
+    Identifiable find(Object id);
 
-    List<T> findAll();
+    List<Identifiable> findAll();
 
-    List<T> findRange(int[] range);
+    List<Identifiable> findRange(int[] range);
 
-    void remove(T entity);
+    void remove(Identifiable entity);
     
 }

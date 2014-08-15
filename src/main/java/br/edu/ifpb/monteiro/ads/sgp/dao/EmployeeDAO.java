@@ -15,8 +15,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author cassio
  */
-@Stateless
-public class EmployeeDAO extends AbstractDAO<Employee> {
+public class EmployeeDAO extends AbstractDAO<Employee> implements AbstractDaoIF{
     @PersistenceContext(unitName = "br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 

@@ -15,8 +15,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author cassio
  */
-@Stateless
-public class ServiceDAO extends AbstractDAO<Service> {
+public class ServiceDAO extends AbstractDAO<Service> implements ServiceDaoIF{
     @PersistenceContext(unitName = "br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 

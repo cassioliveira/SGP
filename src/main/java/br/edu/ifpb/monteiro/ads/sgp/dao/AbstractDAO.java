@@ -6,6 +6,7 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -13,7 +14,7 @@ import javax.persistence.EntityManager;
  *
  * @author cassio
  */
-public abstract class AbstractDAO<T> implements AbstractDaoIF<T> {
+public abstract class AbstractDAO<T extends Identifiable> implements AbstractDaoIF {
     private Class<T> entityClass;
 
     public AbstractDAO(Class<T> entityClass) {
@@ -23,34 +24,34 @@ public abstract class AbstractDAO<T> implements AbstractDaoIF<T> {
     protected abstract EntityManager getEntityManager();
 
     @Override
-    public void create(T entity) {
+    public void create(Identifiable entity) {
         getEntityManager().persist(entity);
     }
 
     @Override
-    public void edit(T entity) {
+    public void edit(Identifiable entity) {
         getEntityManager().merge(entity);
     }
 
     @Override
-    public void remove(T entity) {
+    public void remove(Identifiable entity) {
         getEntityManager().remove(getEntityManager().merge(entity));
     }
 
     @Override
-    public T find(Object id) {
+    public Identifiable find(Object id) {
         return getEntityManager().find(entityClass, id);
     }
 
     @Override
-    public List<T> findAll() {
+    public List<Identifiable> findAll() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
     }
 
     @Override
-    public List<T> findRange(int[] range) {
+    public List<Identifiable> findRange(int[] range) {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
