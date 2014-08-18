@@ -22,7 +22,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
  */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
-public class Corporate extends Client implements Serializable {
+public class Corporate extends Client implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id

@@ -7,23 +7,14 @@
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Reservation;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author cassio
  */
-@Stateless
-public class ReservationDAO extends AbstractDAO<Reservation> {
-    @PersistenceContext(unitName = "br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU")
-    private EntityManager em;
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Reservation
+public class ReservationDAO extends GenericDAO<Reservation> implements ReservationDaoIF{
+   
 
     public ReservationDAO() {
         super(Reservation.class);

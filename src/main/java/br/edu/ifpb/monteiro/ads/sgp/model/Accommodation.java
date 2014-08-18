@@ -5,7 +5,6 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
-import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.Column;
@@ -32,7 +31,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Accommodation")
 @PrimaryKeyJoinColumn(name = "id")
-public class Accommodation implements Serializable {
+public class Accommodation implements Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id

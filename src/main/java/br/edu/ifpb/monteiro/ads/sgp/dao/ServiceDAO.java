@@ -3,30 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Service;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author cassio
  */
-@Stateless
-public class ServiceDAO extends AbstractDAO<Service> {
-    @PersistenceContext(unitName = "br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU")
-    private EntityManager em;
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Service
+public class ServiceDAO extends GenericDAO<Service> implements ServiceDaoIF {
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
 
     public ServiceDAO() {
         super(Service.class);
     }
-    
+
 }

@@ -29,7 +29,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Employee")
 @PrimaryKeyJoinColumn(name = "id")
-public class Employee implements Serializable {
+public class Employee implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id

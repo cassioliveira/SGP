@@ -28,7 +28,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Room")
 @PrimaryKeyJoinColumn(name = "id")
-public class Room implements Serializable {
+public class Room implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id
