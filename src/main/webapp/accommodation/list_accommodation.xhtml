@@ -6,10 +6,9 @@
                 template="/WEB-INF/templates/sgp_template.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-
     <ui:define name="content">
 
-        <p:panel id="client_list_form" header="Lista de Clientes" style="padding: 20px;">
+        <p:panel id="client_list_form" header="Lista de Clientes" style="padding: 20px;" >
             
                     <p:dataTable id="datalist" value="#{accommodationController.items}" var="item"
                                  selectionMode="single" selection="#{accommodationController.selected}"
@@ -22,7 +21,6 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAccommodationTitle_increase}"/>

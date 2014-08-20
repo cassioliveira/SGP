@@ -32,11 +32,12 @@
                         <p:outputLabel value="#{bundle.CreateClientLabel_nationality}" for="nationality" />
                         <p:inputText id="nationality" value="#{clientController.selected.nationality}" title="#{bundle.CreateClientTitle_nationality}" />
                         
+                        <p:commandButton actionListener="#{clientController.create}" value="#{bundle.Save}" />
+                        <p:commandButton value="#{bundle.Cancel}" onclick="ClientCreateDialog.hide()"/>
+   
                     </h:panelGrid>
-
-                    <p:commandButton actionListener="#{clientController.create}" value="#{bundle.Save}"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="ClientCreateDialog.hide()"/>
-                </h:panelGroup>>
+                        
+                </h:panelGroup>
 
             </h:form>
         </p:panel>
