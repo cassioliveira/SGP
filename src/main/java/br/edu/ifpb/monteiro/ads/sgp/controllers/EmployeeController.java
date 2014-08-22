@@ -1,14 +1,13 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Employee;
-import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.services.EmployeeServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,20 +15,26 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 @Named("employeeController")
-@SessionScoped
+@RequestScoped
 public class EmployeeController extends GenericController<Employee> implements EmployeeControllerIF {
 
-   @Inject
+    @Inject 
     private EmployeeServicesIF services;
-    
- 
-    
+
+    @Inject
+    @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Employee
+    private Employee selected;
+
     @Override
-    public Identifiable prepareCreate() {
-        setSelected(new Employee());
-        initializeEmbeddableKey();
-        return getSelected();
+    public Employee getSelected() {
+        return selected;
     }
+
+    @Override
+    public void setSelected(Employee selected) {
+        this.selected = selected;
+    }
+
 
     @Override
     protected ServicesIF getServices() {

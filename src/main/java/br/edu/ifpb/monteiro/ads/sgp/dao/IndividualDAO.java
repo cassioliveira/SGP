@@ -12,7 +12,7 @@ import br.edu.ifpb.monteiro.ads.sgp.model.Individual;
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Individual
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.IndividualDAO
 public class IndividualDAO extends GenericDAO<Individual> implements IndividualDaoIF{
    
     

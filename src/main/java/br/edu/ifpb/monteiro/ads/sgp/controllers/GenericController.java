@@ -5,14 +5,12 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
-import br.edu.ifpb.monteiro.ads.sgp.jsf.util.JsfUtil;
+import br.edu.ifpb.monteiro.ads.sgp.exceptions.SGPException;
+import br.edu.ifpb.monteiro.ads.sgp.util.jsf.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.ejb.EJBException;
 
 /**
  *
@@ -24,52 +22,60 @@ public abstract class GenericController<T extends Identifiable> implements Gener
     /**
      *
      */
-       
     private List<Identifiable> items = null;
-    
-    private Identifiable selected;
 
     public GenericController() {
     }
 
-    public Identifiable getSelected() {
-        return selected;
-    }
+    public abstract T getSelected();
 
-    
-    
-    public void setSelected(Identifiable selected) {
-        this.selected = selected;
-    }
-
-    protected void setEmbeddableKeys() {
-    }
-
-    protected void initializeEmbeddableKey() {
-    }
+    public abstract void setSelected(T selected);
 
     protected abstract ServicesIF getServices();
 
-    public abstract Identifiable prepareCreate();
-  
-
     public void create() {
-        persist(JsfUtil.PersistAction.CREATE, ResourceBundle.getBundle("resources/Bundle").getString("AccommodationCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            items = null;    // Invalidate list of items to trigger re-query.
+        try {
+
+            this.getServices().create(getSelected());
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("resources/Bundle").getString("ItemCreated"));
+            throw new SGPException(); //Verificar se isso realemente é assim ^^
+
+        } catch (SGPException e) {
+
+            JsfUtil.addErrorMessage(e.getLocalizedMessage());
         }
+
     }
 
     public void update() {
-        persist(JsfUtil.PersistAction.UPDATE, ResourceBundle.getBundle("resources/Bundle").getString("AccommodationUpdated"));
+        try {
+
+            this.getServices().edit(getSelected());
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("resources/Bundle").getString("ItemUpdated"));
+            throw new SGPException(); //Verificar se isso realemente é assim ^^
+
+        } catch (SGPException e) {
+
+            JsfUtil.addErrorMessage(e.getLocalizedMessage());
+        }
     }
 
     public void destroy() {
-        persist(JsfUtil.PersistAction.DELETE, ResourceBundle.getBundle("resources/Bundle").getString("AccommodationDeleted"));
-        if (!JsfUtil.isValidationFailed()) {
-            selected = null; // Remove selection
-            items = null;    // Invalidate list of items to trigger re-query.
+        try {
+
+            this.getServices().remove(getSelected());
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("resources/Bundle").getString("ItemDeleted"));
+            if (!JsfUtil.isValidationFailed()) {
+                setSelected(null); // Remove selection
+                items = null;    // Invalidate list of items to trigger re-query.
+            }
+            throw new SGPException(); //Verificar se isso realemente é assim ^^
+
+        } catch (SGPException e) {
+
+            JsfUtil.addErrorMessage(e.getLocalizedMessage());
         }
+
     }
 
     public List<Identifiable> getItems() {
@@ -77,34 +83,6 @@ public abstract class GenericController<T extends Identifiable> implements Gener
             items = getServices().findAll();
         }
         return items;
-    }
-
-    private void persist(JsfUtil.PersistAction persistAction, String successMessage) {
-        if (selected != null) {
-            setEmbeddableKeys();
-            try {
-                if (persistAction != JsfUtil.PersistAction.DELETE) {
-                    getServices().edit(selected);
-                } else {
-                    getServices().remove(selected);
-                }
-                JsfUtil.addSuccessMessage(successMessage);
-            } catch (EJBException ex) {
-                String msg = "";
-                Throwable cause = ex.getCause();
-                if (cause != null) {
-                    msg = cause.getLocalizedMessage();
-                }
-                if (msg.length() > 0) {
-                    JsfUtil.addErrorMessage(msg);
-                } else {
-                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("resources/Bundle").getString("PersistenceErrorOccured"));
-                }
-            } catch (Exception ex) {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
-                JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("resources/Bundle").getString("PersistenceErrorOccured"));
-            }
-        }
     }
 
     public Identifiable getItem(Long id) {

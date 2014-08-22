@@ -17,7 +17,8 @@ import java.util.List;
 public interface GenericDaoIF extends Serializable {
 
     int count();
-
+    
+    
     void create(Identifiable entity);
 
     void edit(Identifiable entity);

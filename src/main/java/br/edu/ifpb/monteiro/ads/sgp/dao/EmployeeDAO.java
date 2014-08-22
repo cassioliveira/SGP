@@ -12,12 +12,12 @@ import br.edu.ifpb.monteiro.ads.sgp.model.Employee;
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Employee
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.EmployeeDAO
 public class EmployeeDAO extends GenericDAO<Employee> implements EmployeeDaoIF{
     
     
     public EmployeeDAO() {
         super(Employee.class);
     }
-    
+   
 }

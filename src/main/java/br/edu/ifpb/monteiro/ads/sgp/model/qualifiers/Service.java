@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers;
+package br.edu.ifpb.monteiro.ads.sgp.model.qualifiers;
 
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.ElementType.FIELD;
@@ -22,5 +22,5 @@ import javax.inject.Qualifier;
 @Qualifier
 @Retention(RUNTIME)
 @Target({METHOD, FIELD, PARAMETER, TYPE})
-public @interface Corporate {
+public @interface Service {
 }

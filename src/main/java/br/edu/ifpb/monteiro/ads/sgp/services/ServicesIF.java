@@ -13,10 +13,12 @@ import java.util.List;
  *
  * @author WitaloCarlos
  */
+
 public interface ServicesIF extends Serializable{
 
     int count();
-
+    
+    
     void create(Identifiable entity);
 
     void edit(Identifiable entity);

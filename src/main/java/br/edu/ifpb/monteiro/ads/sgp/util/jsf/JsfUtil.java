@@ -1,4 +1,4 @@
-package br.edu.ifpb.monteiro.ads.sgp.jsf.util;
+package br.edu.ifpb.monteiro.ads.sgp.util.jsf;
 
 import java.util.List;
 import javax.faces.application.FacesMessage;

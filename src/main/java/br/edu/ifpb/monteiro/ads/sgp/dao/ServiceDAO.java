@@ -11,7 +11,7 @@ import br.edu.ifpb.monteiro.ads.sgp.model.Service;
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Service
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ServiceDAO
 public class ServiceDAO extends GenericDAO<Service> implements ServiceDaoIF {
 
 

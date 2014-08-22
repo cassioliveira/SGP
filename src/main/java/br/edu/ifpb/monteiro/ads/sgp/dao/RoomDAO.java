@@ -11,7 +11,7 @@ import br.edu.ifpb.monteiro.ads.sgp.model.Room;
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Room
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.RoomDAO
 public class RoomDAO extends GenericDAO<Room> implements RoomDaoIF {
 
     

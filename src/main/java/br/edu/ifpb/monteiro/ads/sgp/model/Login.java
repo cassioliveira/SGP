@@ -20,7 +20,8 @@ import javax.persistence.ManyToOne;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@Entity
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Login
+@Entity 
 public class Login implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
@@ -42,6 +43,7 @@ public class Login implements Serializable, Identifiable {
     @JoinColumn(name = "fk_employee", referencedColumnName = "id")
     private Employee fkEmployeeId;
 
+    @Override
     public Long getId() {
         return id;
     }

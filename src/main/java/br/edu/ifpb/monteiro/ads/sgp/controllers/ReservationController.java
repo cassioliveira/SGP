@@ -1,14 +1,13 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Reservation;
-import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.services.ReservationServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,20 +15,26 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 @Named("reservationController")
-@SessionScoped
+@RequestScoped
 public class ReservationController extends GenericController<Reservation> implements ReservationControllerIF {
 
    @Inject
     private ReservationServicesIF services;
     
  
-    
+   @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Reservation
+    private Reservation selected;
+        
     @Override
-    public Identifiable prepareCreate() {
-        setSelected(new Reservation());
-        initializeEmbeddableKey();
-        return getSelected();
+    public Reservation getSelected() {
+       return selected;
     }
+
+    @Override
+    public void setSelected(Reservation selected) {
+        this.selected = selected;
+    } 
+   
 
     @Override
     protected ServicesIF getServices() {

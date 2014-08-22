@@ -5,6 +5,8 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
+import br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Accomodation;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.Column;
@@ -28,7 +30,8 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@Entity
+@Accomodation
+@Entity 
 @Table(name = "Accommodation")
 @PrimaryKeyJoinColumn(name = "id")
 public class Accommodation implements Identifiable {
@@ -93,7 +96,7 @@ public class Accommodation implements Identifiable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "acc_date_output")
-    private GregorianCalendar dateOutput;
+    private Date dateOutput;
 
     /* Annotations and attibutes to relationship of Entities */
     @ManyToOne
@@ -114,6 +117,7 @@ public class Accommodation implements Identifiable {
     @OneToOne
     private Client client;
 
+    @Override
     public Long getId() {
         return id;
     }
@@ -335,14 +339,14 @@ public class Accommodation implements Identifiable {
     /**
      * @return the dateOutput
      */
-    public GregorianCalendar getDateOutput() {
+    public Date getDateOutput() {
         return dateOutput;
     }
 
     /**
      * @param dateOutput the dateOutput to set
      */
-    public void setDateOutput(GregorianCalendar dateOutput) {
+    public void setDateOutput(Date dateOutput) {
         this.dateOutput = dateOutput;
     }
 

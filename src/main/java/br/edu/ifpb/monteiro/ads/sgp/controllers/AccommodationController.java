@@ -6,6 +6,7 @@ import br.edu.ifpb.monteiro.ads.sgp.services.AccommodationServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
@@ -15,21 +16,27 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 @Named("accommodationController")
-@SessionScoped
+@RequestScoped
 public class AccommodationController extends GenericController<Accommodation> implements AccommodationControllerIF {
 
     @Inject
     private AccommodationServicesIF services;
-    
- 
-    
+
+    @Inject
+    @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Accomodation
+    private Accommodation selected;
+
     @Override
-    public Identifiable prepareCreate() {
-        setSelected(new Accommodation());
-        initializeEmbeddableKey();
-        return getSelected();
+    public Accommodation getSelected() {
+        return selected;
     }
 
+    @Override
+    public void setSelected(Accommodation selected) {
+        this.selected =  selected;
+    }
+
+   
     @Override
     protected ServicesIF getServices() {
         return services;

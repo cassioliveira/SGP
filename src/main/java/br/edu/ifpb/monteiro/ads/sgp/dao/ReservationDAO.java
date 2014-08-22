@@ -12,7 +12,7 @@ import br.edu.ifpb.monteiro.ads.sgp.model.Reservation;
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Reservation
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ReservationDAO
 public class ReservationDAO extends GenericDAO<Reservation> implements ReservationDaoIF{
    
 

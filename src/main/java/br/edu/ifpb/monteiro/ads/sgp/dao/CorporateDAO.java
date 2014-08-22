@@ -12,7 +12,7 @@ import br.edu.ifpb.monteiro.ads.sgp.model.Corporate;
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Corporate
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.CorporateDAO
 public class CorporateDAO extends GenericDAO<Corporate> implements CorporateDaoIF{
    
     

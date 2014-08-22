@@ -8,14 +8,9 @@ package br.edu.ifpb.monteiro.ads.sgp.dao;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
 import javax.enterprise.context.Dependent;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Default;
-import javax.enterprise.inject.Disposes;
-import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 /**
  *
@@ -28,6 +23,14 @@ public class GenericDAO<T extends Identifiable> implements GenericDaoIF {
 
     private Class<T> entityClass;
 
+    
+    @Inject
+    private EntityManager entityManager;
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
     public GenericDAO() {
     }
 
@@ -35,21 +38,15 @@ public class GenericDAO<T extends Identifiable> implements GenericDaoIF {
         this.entityClass = entityClass;
     }
 
-    private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU");
-
-    @Produces
-    @SessionScoped
-    protected EntityManager getEntityManager() {
-        return factory.createEntityManager();
-    }
-    
-    public void close(@Disposes EntityManager em) {
-		em.close();
-	}
-
     @Override
     public void create(Identifiable entity) {
-        getEntityManager().persist(entity);
+        System.out.println("Passei aqui D");
+        try {
+            getEntityManager().persist(entity);
+        } catch (Exception e) {
+            System.err.println("Erro no DAO: "+e.getMessage());
+        }
+        
     }
 
     @Override

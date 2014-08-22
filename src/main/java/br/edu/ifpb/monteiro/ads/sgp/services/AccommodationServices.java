@@ -6,8 +6,9 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.AccomodationDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Accomodation;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.AccomodationDAO;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
+import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -19,17 +20,24 @@ import javax.inject.Inject;
 @SessionScoped
 public class AccommodationServices implements AccommodationServicesIF {
 
-    @Inject @Accomodation
+    @Inject
+    @AccomodationDAO
     private AccomodationDaoIF accommodationDao;
-    
+
     @Override
     public int count() {
         return accommodationDao.count();
     }
 
+    @Transactional
     @Override
     public void create(Identifiable entity) {
-        accommodationDao.create(entity);
+
+        try {
+            this.accommodationDao.create(entity);
+        } catch (Exception e) {
+            System.err.println("Erro no Service: " + e.getMessage());
+        }
     }
 
     @Override
@@ -57,5 +65,4 @@ public class AccommodationServices implements AccommodationServicesIF {
         accommodationDao.remove(entity);
     }
 
-    
 }

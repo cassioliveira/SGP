@@ -6,8 +6,9 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.CorporateDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Corporate;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.CorporateDAO;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
+import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -19,7 +20,7 @@ import javax.inject.Inject;
 @SessionScoped
 public class CorporateServices implements CorporateServicesIF {
 
-    @Inject @Corporate
+    @Inject @CorporateDAO
     private CorporateDaoIF corporateDao;
     
     @Override
@@ -27,9 +28,15 @@ public class CorporateServices implements CorporateServicesIF {
         return corporateDao.count();
     }
 
+    @Transactional
     @Override
     public void create(Identifiable entity) {
-        corporateDao.create(entity);
+        
+        try{
+        this.corporateDao.create(entity);
+        }catch (Exception e) {
+            System.err.println("Erro no Service: "+e.getMessage());
+        }
     }
 
     @Override

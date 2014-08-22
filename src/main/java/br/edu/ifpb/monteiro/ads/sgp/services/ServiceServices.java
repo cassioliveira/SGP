@@ -6,8 +6,9 @@
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
 import br.edu.ifpb.monteiro.ads.sgp.dao.ServiceDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Service;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ServiceDAO;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
+import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -19,7 +20,7 @@ import javax.inject.Inject;
 @SessionScoped
 public class ServiceServices implements ServiceServicesIF {
 
-    @Inject @Service
+    @Inject @ServiceDAO
     private ServiceDaoIF serviceDao;
     
     @Override
@@ -27,9 +28,15 @@ public class ServiceServices implements ServiceServicesIF {
         return serviceDao.count();
     }
 
+    @Transactional
     @Override
     public void create(Identifiable entity) {
-        serviceDao.create(entity);
+        
+        try{
+        this.serviceDao.create(entity);
+        }catch (Exception e) {
+            System.err.println("Erro no Service: "+e.getMessage());
+        }
     }
 
     @Override

@@ -1,13 +1,12 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Client;
-import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.services.ClientServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -15,25 +14,34 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 @Named("clientController")
-@SessionScoped
+@RequestScoped
 public class ClientController extends GenericController<Client> implements ClientControllerIF{
 
+    
     @Inject
     protected ClientServicesIF service;
+   
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Client
+    private Client selected;
+        
+    @Override
+    public Client getSelected() {
+       return selected;
+    }
+
+    @Override
+    public void setSelected(Client selected) {
+           this.selected = selected;
+    }
+
+   
     
     @Override
     protected ServicesIF getServices() {
          return service;
     }
 
-    @Override
-    public Identifiable prepareCreate() {
-       setSelected(new Client());
-        initializeEmbeddableKey();
-        return getSelected();
-    }
 
-   
 
     
     @FacesConverter(forClass = Client.class)

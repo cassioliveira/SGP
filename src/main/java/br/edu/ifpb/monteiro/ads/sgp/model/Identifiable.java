@@ -7,11 +7,13 @@
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import java.io.Serializable;
+import javax.enterprise.inject.Default;
 
 /**
  *
  * @author WitaloCarlos
  */
+@Default
 public interface Identifiable extends Serializable{
  
     public Long getId();

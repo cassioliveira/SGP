@@ -25,7 +25,8 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@Entity
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Reservation
+@Entity 
 @Table(name = "Reservation")
 @PrimaryKeyJoinColumn(name = "id")
 public class Reservation implements Serializable, Identifiable {

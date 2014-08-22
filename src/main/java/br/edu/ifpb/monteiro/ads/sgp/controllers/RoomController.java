@@ -1,14 +1,13 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Room;
-import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.services.RoomServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,20 +15,26 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 @Named("roomController")
-@SessionScoped
+@RequestScoped
 public class RoomController extends GenericController<Room> implements RoomControllerIF {
 
     @Inject
     private RoomServicesIF services;
     
- 
-    
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Room
+    private Room selected;
+        
     @Override
-    public Identifiable prepareCreate() {
-        setSelected(new Room());
-        initializeEmbeddableKey();
-        return getSelected();
+    public Room getSelected() {
+       return selected;
     }
+
+    @Override
+    public void setSelected(Room selected) {
+        this.selected = selected;
+    }
+ 
+   
 
     @Override
     protected ServicesIF getServices() {

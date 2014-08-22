@@ -28,7 +28,8 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@Entity
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Service
+@Entity 
 @Table(name = "Service")
 @PrimaryKeyJoinColumn(name = "id")
 public class Service implements Serializable, Identifiable {
@@ -69,6 +70,7 @@ public class Service implements Serializable, Identifiable {
     )
     private List<Accommodation> accommodations;
 
+    @Override
     public Long getId() {
         return id;
     }

@@ -10,6 +10,7 @@ package br.edu.ifpb.monteiro.ads.sgp.services;
  *
  * @author WitaloCarlos
  */
+
 public interface ServiceServicesIF extends ServicesIF{
     
 }

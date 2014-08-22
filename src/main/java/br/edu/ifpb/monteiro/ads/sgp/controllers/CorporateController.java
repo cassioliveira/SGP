@@ -1,14 +1,13 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Corporate;
-import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.services.CorporateServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,20 +15,26 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 @Named("corporateController")
-@SessionScoped
+@RequestScoped
 public class CorporateController extends GenericController<Corporate> implements CorporateControllerIF {
 
     @Inject
     private CorporateServicesIF services;
     
  
-    
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Corporate
+    private Corporate selected;
+        
     @Override
-    public Identifiable prepareCreate() {
-        setSelected(new Corporate());
-        initializeEmbeddableKey();
-        return getSelected();
+    public Corporate getSelected() {
+       return selected;
     }
+
+    @Override
+    public void setSelected(Corporate selected) {
+        this.selected = selected;
+    }
+    
 
     @Override
     protected ServicesIF getServices() {

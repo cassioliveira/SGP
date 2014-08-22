@@ -20,7 +20,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@Entity
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Corporate
+@Entity 
 @PrimaryKeyJoinColumn(name = "id")
 public class Corporate extends Client implements Serializable, Identifiable {
 
@@ -41,10 +42,12 @@ public class Corporate extends Client implements Serializable, Identifiable {
     @Column(name = "client_municipal_register", nullable = false, length = 15, unique = true)
     private String municipalRegister;
 
+    @Override
     public Long getId() {
         return id;
     }
 
+    @Override
     public void setId(Long id) {
         this.id = id;
     }

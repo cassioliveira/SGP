@@ -12,7 +12,7 @@ import br.edu.ifpb.monteiro.ads.sgp.model.Login;
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Login
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.LoginDAO
 public class LoginDAO extends GenericDAO<Login> implements LoginDaoIF{
     
     public LoginDAO() {

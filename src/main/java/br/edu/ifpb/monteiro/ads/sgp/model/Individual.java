@@ -6,7 +6,7 @@
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import java.io.Serializable;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +23,8 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@Entity
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Individual
+@Entity 
 @PrimaryKeyJoinColumn(name = "id")
 public class Individual extends Client implements Serializable, Identifiable{
 
@@ -52,12 +53,14 @@ public class Individual extends Client implements Serializable, Identifiable{
 
     @Temporal(TemporalType.DATE)
     @Column(name = "client_birthdate")
-    private GregorianCalendar birthDate;
+    private Date birthDate;
 
+    @Override
     public Long getId() {
         return id;
     }
 
+    @Override
     public void setId(Long id) {
         this.id = id;
     }
@@ -149,14 +152,14 @@ public class Individual extends Client implements Serializable, Identifiable{
     /**
      * @return the birthDate
      */
-    public GregorianCalendar getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
     /**
      * @param birthDate the birthDate to set
      */
-    public void setBirthDate(GregorianCalendar birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/templates/sgp_template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        <p:dialog id="AccommodationViewDlg" widgetVar="AccommodationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAccommodationTitle}">
+            <h:form id="AccommodationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{accommodationController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_id}"/>
+                        <h:outputText value="#{accommodationController.selected.id}" title="#{bundle.ViewAccommodationTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_increase}"/>
+                        <h:outputText value="#{accommodationController.selected.increase}" title="#{bundle.ViewAccommodationTitle_increase}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_transport}"/>
+                        <h:outputText value="#{accommodationController.selected.transport}" title="#{bundle.ViewAccommodationTitle_transport}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_discount}"/>
+                        <h:outputText value="#{accommodationController.selected.discount}" title="#{bundle.ViewAccommodationTitle_discount}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_price}"/>
+                        <h:outputText value="#{accommodationController.selected.price}" title="#{bundle.ViewAccommodationTitle_price}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_source}"/>
+                        <h:outputText value="#{accommodationController.selected.source}" title="#{bundle.ViewAccommodationTitle_source}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_observations}"/>
+                        <h:outputText value="#{accommodationController.selected.observations}" title="#{bundle.ViewAccommodationTitle_observations}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_reasonTravel}"/>
+                        <h:outputText value="#{accommodationController.selected.reasonTravel}" title="#{bundle.ViewAccommodationTitle_reasonTravel}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_dependent}"/>
+                        <h:outputText value="#{accommodationController.selected.dependent}" title="#{bundle.ViewAccommodationTitle_dependent}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_quantityChild}"/>
+                        <h:outputText value="#{accommodationController.selected.quantityChild}" title="#{bundle.ViewAccommodationTitle_quantityChild}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_nextDestination}"/>
+                        <h:outputText value="#{accommodationController.selected.nextDestination}" title="#{bundle.ViewAccommodationTitle_nextDestination}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_dateInput}"/>
+                        <h:outputText value="#{accommodationController.selected.dateInput}" title="#{bundle.ViewAccommodationTitle_dateInput}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_forecastOutput}"/>
+                        <h:outputText value="#{accommodationController.selected.forecastOutput}" title="#{bundle.ViewAccommodationTitle_forecastOutput}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_dateOutput}"/>
+                        <h:outputText value="#{accommodationController.selected.dateOutput}" title="#{bundle.ViewAccommodationTitle_dateOutput}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_fkRoomId}"/>
+                        <h:outputText value="#{accommodationController.selected.fkRoomId}" title="#{bundle.ViewAccommodationTitle_fkRoomId}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_fkEmployeeId}"/>
+                        <h:outputText value="#{accommodationController.selected.fkEmployeeId}" title="#{bundle.ViewAccommodationTitle_fkEmployeeId}"/>
+                        <h:outputText value="#{bundle.ViewAccommodationLabel_client}"/>
+                        <h:outputText value="#{accommodationController.selected.client}" title="#{bundle.ViewAccommodationTitle_client}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AccommodationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+    </ui:define>
+
+</ui:composition>

@@ -6,6 +6,7 @@
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import java.io.Serializable;
+import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -26,6 +27,7 @@ import javax.persistence.Table;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Client
 @Entity
 @Table(name = "Client")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -43,6 +45,7 @@ public class Client implements Serializable, Identifiable {
     @Column(name = "client_email", nullable = false, length = 100)
     private String email;
 
+    @Inject
     @Embedded
     private Address address;
 
@@ -67,6 +70,7 @@ public class Client implements Serializable, Identifiable {
     @OneToOne(mappedBy = "client")
     private Accommodation accomodation;
 
+    @Override
     public Long getId() {
         return id;
     }

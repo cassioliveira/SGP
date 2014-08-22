@@ -6,14 +6,14 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.Accomodation;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.AccomodationDAO;
 import br.edu.ifpb.monteiro.ads.sgp.model.Accommodation;
 
 /**
  *
  * @author cassio
  */
-@Accomodation
+@AccomodationDAO
 public class AccommodationDAO extends GenericDAO<Accommodation> implements AccomodationDaoIF{
     
     

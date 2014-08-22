@@ -1,14 +1,13 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Service;
-import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServiceServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -16,22 +15,27 @@ import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
 @Named("serviceController")
-@SessionScoped
+@RequestScoped
 public class ServiceController extends GenericController<Service> implements ServiceControllerIF {
 
     
     @Inject
     private ServiceServicesIF services;
     
- 
-    
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Service
+    private Service selected;
+        
     @Override
-    public Identifiable prepareCreate() {
-        setSelected(new Service());
-        initializeEmbeddableKey();
-        return getSelected();
+    public Service getSelected() {
+       return selected;
     }
 
+    @Override
+    public void setSelected(Service selected) {
+        this.selected = selected;
+    }
+ 
+   
     @Override
     protected ServicesIF getServices() {
         return services;

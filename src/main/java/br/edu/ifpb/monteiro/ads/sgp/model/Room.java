@@ -24,7 +24,7 @@ import javax.persistence.Table;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Room
 @Entity
 @Table(name = "Room")
 @PrimaryKeyJoinColumn(name = "id")
@@ -56,6 +56,7 @@ public class Room implements Serializable, Identifiable {
     @OneToMany(mappedBy = "fkRoomId", targetEntity = Accommodation.class)
     private List<Accommodation> accommodations;
 
+    @Override
     public Long getId() {
         return id;
     }

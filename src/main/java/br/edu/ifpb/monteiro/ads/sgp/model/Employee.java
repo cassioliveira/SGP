@@ -6,8 +6,9 @@
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
 import java.io.Serializable;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import java.util.List;
+import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -26,13 +27,15 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@Entity
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Employee
+@Entity()
 @Table(name = "Employee")
 @PrimaryKeyJoinColumn(name = "id")
 public class Employee implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -45,6 +48,7 @@ public class Employee implements Serializable, Identifiable {
     @Column(name = "emp_email", nullable = false, length = 100)
     private String email;
 
+    @Inject
     @Embedded
     private Address address;
 
@@ -74,7 +78,7 @@ public class Employee implements Serializable, Identifiable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "emp_birthdate")
-    private GregorianCalendar birthDate;
+    private Date birthDate;
 
     /* Annotations and attibutes to relationship of Entities */
     @OneToMany(mappedBy = "fkEmpId", targetEntity = Room.class)
@@ -95,6 +99,7 @@ public class Employee implements Serializable, Identifiable {
     @OneToMany(mappedBy = "fkEmployeeId", targetEntity = Login.class)
     private List<Login> logins;
 
+    @Override
     public Long getId() {
         return id;
     }
@@ -274,14 +279,14 @@ public class Employee implements Serializable, Identifiable {
     /**
      * @return the birthDate
      */
-    public GregorianCalendar getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
     /**
      * @param birthDate the birthDate to set
      */
-    public void setBirthDate(GregorianCalendar birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
