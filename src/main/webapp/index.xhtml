@@ -18,7 +18,10 @@
 
                     <h:outputLabel for="password" value="#{bundle.ViewLoginLabel_password}" />
                     <p:password id="password" value="#{loginController.selected.password}" required="true" label="password" />
-
+                    
+                    <p:button outcome="template" value="OK">
+                        <f:param name="productId" value="10" />
+                    </p:button>
                 </h:panelGrid>
             </p:dialog>
         </div>
