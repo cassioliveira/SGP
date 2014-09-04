@@ -5,8 +5,9 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
-import br.edu.ifpb.monteiro.ads.sgp.dao.AccomodationDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.AccomodationDAO;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.AccommodationServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.AccomodationDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.AccomodationDaoQlf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
@@ -21,7 +22,7 @@ import javax.inject.Inject;
 public class AccommodationServices implements AccommodationServicesIF {
 
     @Inject
-    @AccomodationDAO
+    @AccomodationDaoQlf
     private AccomodationDaoIF accommodationDao;
 
     @Override

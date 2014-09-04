@@ -5,8 +5,9 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
-import br.edu.ifpb.monteiro.ads.sgp.dao.CorporateDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.CorporateDAO;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.CorporateServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.CorporateDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.CorporateDaoQlf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
@@ -20,7 +21,7 @@ import javax.inject.Inject;
 @SessionScoped
 public class CorporateServices implements CorporateServicesIF {
 
-    @Inject @CorporateDAO
+    @Inject @CorporateDaoQlf
     private CorporateDaoIF corporateDao;
     
     @Override

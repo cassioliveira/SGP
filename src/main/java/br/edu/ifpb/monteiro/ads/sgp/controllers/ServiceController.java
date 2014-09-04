@@ -1,8 +1,8 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Service;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServiceServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServiceServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +22,7 @@ public class ServiceController extends GenericController<Service> implements Ser
     @Inject
     private ServiceServicesIF services;
     
-    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Service
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.ServiceQlf
     private Service selected;
         
     @Override

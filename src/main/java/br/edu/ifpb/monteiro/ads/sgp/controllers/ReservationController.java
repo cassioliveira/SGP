@@ -1,8 +1,8 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Reservation;
-import br.edu.ifpb.monteiro.ads.sgp.services.ReservationServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ReservationServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +22,7 @@ public class ReservationController extends GenericController<Reservation> implem
     private ReservationServicesIF services;
     
  
-   @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Reservation
+   @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.ReservationQlf
     private Reservation selected;
         
     @Override

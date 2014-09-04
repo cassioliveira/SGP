@@ -5,8 +5,9 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
-import br.edu.ifpb.monteiro.ads.sgp.dao.ReservationDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ReservationDAO;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ReservationServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.ReservationDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ReservationDaoQlf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
@@ -20,7 +21,7 @@ import javax.inject.Inject;
 @SessionScoped
 public class ReservationServices implements ReservationServicesIF {
 
-    @Inject @ReservationDAO
+    @Inject @ReservationDaoQlf
     private ReservationDaoIF reservationDao;
     
     @Override

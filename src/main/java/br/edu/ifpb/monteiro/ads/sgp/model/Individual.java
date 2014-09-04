@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Individual
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.IndividualQlf
 @Entity 
 @PrimaryKeyJoinColumn(name = "id")
 public class Individual extends Client implements Serializable, Identifiable{

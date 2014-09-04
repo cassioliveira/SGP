@@ -1,8 +1,8 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Login;
-import br.edu.ifpb.monteiro.ads.sgp.services.LoginServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.LoginServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +21,7 @@ public class LoginController extends GenericController<Login> implements LoginCo
     @Inject
     private LoginServicesIF services;
     
-    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Login
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.LoginQlf
     private Login selected;
         
     @Override

@@ -20,7 +20,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Corporate
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.CorporateQlf
 @Entity 
 @PrimaryKeyJoinColumn(name = "id")
 public class Corporate extends Client implements Serializable, Identifiable {

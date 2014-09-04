@@ -5,6 +5,7 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.GenericDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
 import javax.enterprise.context.Dependent;

@@ -1,8 +1,8 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Client;
-import br.edu.ifpb.monteiro.ads.sgp.services.ClientServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ClientServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -21,7 +21,7 @@ public class ClientController extends GenericController<Client> implements Clien
     @Inject
     protected ClientServicesIF service;
    
-    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Client
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.ClientQlf
     private Client selected;
         
     @Override

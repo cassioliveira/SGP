@@ -5,7 +5,7 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
-import br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Accomodation;
+import br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.AccomodationQlf;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -30,7 +30,7 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@Accomodation
+@AccomodationQlf
 @Entity 
 @Table(name = "Accommodation")
 @PrimaryKeyJoinColumn(name = "id")

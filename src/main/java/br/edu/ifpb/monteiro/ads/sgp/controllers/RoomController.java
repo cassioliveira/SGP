@@ -1,8 +1,8 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Room;
-import br.edu.ifpb.monteiro.ads.sgp.services.RoomServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.RoomServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +21,7 @@ public class RoomController extends GenericController<Room> implements RoomContr
     @Inject
     private RoomServicesIF services;
     
-    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Room
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.RoomQlf
     private Room selected;
         
     @Override

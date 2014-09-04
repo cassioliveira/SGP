@@ -20,7 +20,7 @@ import javax.persistence.ManyToOne;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Login
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.LoginQlf
 @Entity 
 public class Login implements Serializable, Identifiable {
 

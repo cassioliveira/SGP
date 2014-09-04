@@ -6,13 +6,14 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.IndividualDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Individual;
 
 /**
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.IndividualDAO
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.IndividualDaoQlf
 public class IndividualDAO extends GenericDAO<Individual> implements IndividualDaoIF{
    
     

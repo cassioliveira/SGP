@@ -5,13 +5,14 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.ClientDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Client;
 
 /**
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ClientDAO
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ClientDaoQlf
 public class ClientDAO extends GenericDAO<Client> implements ClientDaoIF {
 
     public ClientDAO() {

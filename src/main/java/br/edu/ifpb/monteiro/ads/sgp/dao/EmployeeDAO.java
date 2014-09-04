@@ -6,13 +6,14 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.EmployeeDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Employee;
 
 /**
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.EmployeeDAO
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.EmployeeDaoQlf
 public class EmployeeDAO extends GenericDAO<Employee> implements EmployeeDaoIF{
     
     

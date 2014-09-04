@@ -1,8 +1,8 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Corporate;
-import br.edu.ifpb.monteiro.ads.sgp.services.CorporateServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.CorporateServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +22,7 @@ public class CorporateController extends GenericController<Corporate> implements
     private CorporateServicesIF services;
     
  
-    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Corporate
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.CorporateQlf
     private Corporate selected;
         
     @Override

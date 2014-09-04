@@ -6,13 +6,14 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.LoginDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Login;
 
 /**
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.LoginDAO
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.LoginDaoQlf
 public class LoginDAO extends GenericDAO<Login> implements LoginDaoIF{
     
     public LoginDAO() {

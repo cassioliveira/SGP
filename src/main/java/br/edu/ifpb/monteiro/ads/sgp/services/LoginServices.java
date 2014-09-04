@@ -5,8 +5,9 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
-import br.edu.ifpb.monteiro.ads.sgp.dao.LoginDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.LoginDAO;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.LoginServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.LoginDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.LoginDaoQlf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
@@ -20,7 +21,7 @@ import javax.inject.Inject;
 @SessionScoped
 public class LoginServices implements LoginServicesIF {
 
-    @Inject @LoginDAO
+    @Inject @LoginDaoQlf
     private LoginDaoIF loginDao;
     
     @Override

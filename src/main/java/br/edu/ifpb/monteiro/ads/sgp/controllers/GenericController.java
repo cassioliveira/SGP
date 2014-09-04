@@ -8,7 +8,7 @@ package br.edu.ifpb.monteiro.ads.sgp.controllers;
 import br.edu.ifpb.monteiro.ads.sgp.exceptions.SGPException;
 import br.edu.ifpb.monteiro.ads.sgp.util.jsf.JsfUtil;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 import java.util.List;
 import java.util.ResourceBundle;
 

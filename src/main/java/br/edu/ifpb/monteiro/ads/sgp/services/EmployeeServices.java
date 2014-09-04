@@ -5,8 +5,9 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
-import br.edu.ifpb.monteiro.ads.sgp.dao.EmployeeDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.EmployeeDAO;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.EmployeeServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.EmployeeDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.EmployeeDaoQlf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
@@ -21,7 +22,7 @@ import javax.inject.Inject;
 public class EmployeeServices implements EmployeeServicesIF {
 
     @Inject
-    @EmployeeDAO
+    @EmployeeDaoQlf
     private EmployeeDaoIF employeeDao;
 
     @Override

@@ -1,8 +1,8 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Employee;
-import br.edu.ifpb.monteiro.ads.sgp.services.EmployeeServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.EmployeeServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +22,7 @@ public class EmployeeController extends GenericController<Employee> implements E
     private EmployeeServicesIF services;
 
     @Inject
-    @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Employee
+    @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.EmployeeQlf
     private Employee selected;
 
     @Override

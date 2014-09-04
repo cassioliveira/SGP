@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Reservation
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.ReservationQlf
 @Entity 
 @Table(name = "Reservation")
 @PrimaryKeyJoinColumn(name = "id")

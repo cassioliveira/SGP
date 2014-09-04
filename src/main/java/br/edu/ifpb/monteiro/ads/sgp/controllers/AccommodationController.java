@@ -2,8 +2,8 @@ package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Accommodation;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
-import br.edu.ifpb.monteiro.ads.sgp.services.AccommodationServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.AccommodationServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -23,7 +23,7 @@ public class AccommodationController extends GenericController<Accommodation> im
     private AccommodationServicesIF services;
 
     @Inject
-    @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Accomodation
+    @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.AccomodationQlf
     private Accommodation selected;
 
     @Override

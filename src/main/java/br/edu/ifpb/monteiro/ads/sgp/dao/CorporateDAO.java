@@ -6,13 +6,14 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.CorporateDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Corporate;
 
 /**
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.CorporateDAO
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.CorporateDaoQlf
 public class CorporateDAO extends GenericDAO<Corporate> implements CorporateDaoIF{
    
     

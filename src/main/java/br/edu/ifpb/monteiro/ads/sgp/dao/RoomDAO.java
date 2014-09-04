@@ -5,13 +5,14 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.RoomDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Room;
 
 /**
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.RoomDAO
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.RoomDaoQlf
 public class RoomDAO extends GenericDAO<Room> implements RoomDaoIF {
 
     

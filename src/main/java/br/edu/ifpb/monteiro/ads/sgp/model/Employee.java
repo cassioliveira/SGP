@@ -27,7 +27,7 @@ import javax.persistence.TemporalType;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Employee
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.EmployeeQlf
 @Entity()
 @Table(name = "Employee")
 @PrimaryKeyJoinColumn(name = "id")

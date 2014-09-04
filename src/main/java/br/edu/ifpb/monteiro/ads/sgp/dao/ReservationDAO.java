@@ -6,13 +6,14 @@
 
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.ReservationDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Reservation;
 
 /**
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ReservationDAO
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ReservationDaoQlf
 public class ReservationDAO extends GenericDAO<Reservation> implements ReservationDaoIF{
    
 

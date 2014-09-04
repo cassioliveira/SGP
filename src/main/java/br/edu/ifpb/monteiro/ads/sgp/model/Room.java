@@ -24,7 +24,7 @@ import javax.persistence.Table;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Room
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.RoomQlf
 @Entity
 @Table(name = "Room")
 @PrimaryKeyJoinColumn(name = "id")

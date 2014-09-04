@@ -27,7 +27,7 @@ import javax.persistence.Table;
  * @author Cássio Oliveira
  * @author Wilde Arruda
  */
-@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Client
+@br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.ClientQlf
 @Entity
 @Table(name = "Client")
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -1,8 +1,8 @@
 package br.edu.ifpb.monteiro.ads.sgp.controllers;
 
 import br.edu.ifpb.monteiro.ads.sgp.model.Individual;
-import br.edu.ifpb.monteiro.ads.sgp.services.IndividualServicesIF;
-import br.edu.ifpb.monteiro.ads.sgp.services.ServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.IndividualServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +21,7 @@ public class IndividualController extends GenericController<Individual> implemen
     @Inject
     private IndividualServicesIF services;
     
-    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.Individual
+    @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.IndividualQlf
     private Individual selected;
         
     @Override

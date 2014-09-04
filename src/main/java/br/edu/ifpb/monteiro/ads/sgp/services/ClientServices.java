@@ -5,8 +5,9 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
-import br.edu.ifpb.monteiro.ads.sgp.dao.ClientDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ClientDAO;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.ClientServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.ClientDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ClientDaoQlf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
@@ -21,7 +22,7 @@ import javax.inject.Inject;
 public class ClientServices implements ClientServicesIF {
 
     @Inject
-    @ClientDAO
+    @ClientDaoQlf
     private ClientDaoIF clientDao;
 
     @Override

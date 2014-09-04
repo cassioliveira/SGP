@@ -5,8 +5,9 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.services;
 
-import br.edu.ifpb.monteiro.ads.sgp.dao.RoomDaoIF;
-import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.RoomDAO;
+import br.edu.ifpb.monteiro.ads.sgp.services.facade.RoomServicesIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.RoomDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.RoomDaoQlf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
@@ -21,7 +22,7 @@ import javax.inject.Inject;
 public class RoomServices implements RoomServicesIF {
 
     @Inject
-    @RoomDAO
+    @RoomDaoQlf
     private RoomDaoIF roomDao;
 
     @Override

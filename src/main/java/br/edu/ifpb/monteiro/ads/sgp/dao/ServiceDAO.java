@@ -5,13 +5,14 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.dao;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.ServiceDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Service;
 
 /**
  *
  * @author cassio
  */
-@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ServiceDAO
+@br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.ServiceDaoQlf
 public class ServiceDAO extends GenericDAO<Service> implements ServiceDaoIF {
 
 
