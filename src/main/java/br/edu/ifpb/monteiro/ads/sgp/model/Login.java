@@ -5,7 +5,12 @@
  */
 package br.edu.ifpb.monteiro.ads.sgp.model;
 
+import br.edu.ifpb.monteiro.ads.sgp.dao.LoginDAO;
+import br.edu.ifpb.monteiro.ads.sgp.dao.facades.LoginDaoIF;
+import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.LoginDaoQlf;
 import java.io.Serializable;
+import java.util.Objects;
+import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,6 +48,26 @@ public class Login implements Serializable, Identifiable {
     @JoinColumn(name = "fk_employee", referencedColumnName = "id")
     private Employee fkEmployeeId;
 
+    @LoginDaoQlf
+    private LoginDAO conect;
+    /**
+     * 
+     * @param login
+     * @return
+     */
+    public boolean validation(Login login){
+        if (Objects.equals(conect.find(login).getId(), login.getId())) {
+            return true;
+        }else{
+          return false;   
+        } 
+    }
+    
+    
+    
+    
+    
+    
     @Override
     public Long getId() {
         return id;

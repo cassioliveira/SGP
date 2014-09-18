@@ -11,6 +11,7 @@ import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,6 +24,7 @@ public abstract class GenericController<T extends Identifiable> implements Gener
      *
      */
     private List<Identifiable> items = null;
+    private static final Logger logger = Logger.getGlobal();
 
     public GenericController() {
     }
@@ -35,13 +37,13 @@ public abstract class GenericController<T extends Identifiable> implements Gener
 
     public void create() {
         try {
-
+            logger.info("Controller Create Acessado");
             this.getServices().create(getSelected());
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("resources/Bundle").getString("ItemCreated"));
             throw new SGPException(); //Verificar se isso realemente é assim ^^
 
         } catch (SGPException e) {
-
+            logger.info("Controller Create Errado");
             JsfUtil.addErrorMessage(e.getLocalizedMessage());
         }
 

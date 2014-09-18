@@ -3,6 +3,7 @@ package br.edu.ifpb.monteiro.ads.sgp.controllers;
 import br.edu.ifpb.monteiro.ads.sgp.model.Login;
 import br.edu.ifpb.monteiro.ads.sgp.services.facade.LoginServicesIF;
 import br.edu.ifpb.monteiro.ads.sgp.services.facade.ServicesIF;
+import java.io.IOException;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,30 @@ public class LoginController extends GenericController<Login> implements LoginCo
     
     @Inject @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.LoginQlf
     private Login selected;
+    
+    public void inputTest(){
+        selected.setId(Long.MIN_VALUE);
+        selected.setLevel("dois");
+        selected.setPassword("123");
+        selected.setUser("Vaca");
+    }
+    
+    
+    public void validation(){
+        if (selected.validation(selected)) {
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("template.xhtml");
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }else{
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }         
+    }
         
     @Override
     public Login getSelected() {

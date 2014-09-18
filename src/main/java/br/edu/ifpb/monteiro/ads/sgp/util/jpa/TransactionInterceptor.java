@@ -6,6 +6,7 @@
 package br.edu.ifpb.monteiro.ads.sgp.util.jpa;
 
 import java.io.Serializable;
+import java.util.logging.Logger;
 import javax.annotation.Priority;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
@@ -13,8 +14,7 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 
 /**
  *
@@ -26,34 +26,38 @@ import org.apache.logging.log4j.Logger;
 public class TransactionInterceptor implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private static Logger log = LogManager.getLogger(TransactionInterceptor.class);
+    private static final Logger logger = Logger.getGlobal();
 
     private @Inject
     EntityManager manager;
 
     @AroundInvoke
     public Object invoke(InvocationContext context) throws Exception {
+        logger.info("Método Transação");
         EntityTransaction transaction = manager.getTransaction();
         boolean owner = false;
 
         try {
+            
             if (!transaction.isActive()) {
+                logger.info("Começando Transação");
 				// truque para fazer rollback no que já passou
                 // (senão, um futuro commit, confirmaria até mesmo operações sem
                 // transação)
                 transaction.begin();
-                log.info("Transação Iniciada");
+                logger.info("Transação Iniciada");
                 transaction.rollback();
-                log.info("Rollback intencional");
+                logger.info("Rollback intencional");
 
                 transaction.begin();
-                log.info("Transação Reiniciada");
+                logger.info("Transação Reiniciada");
 
                 owner = true;
             }
 
             return context.proceed();
         } catch (Exception e) {
+            logger.info("Transação Interrompida");
             if (transaction != null && owner) {
                 System.out.println("catch Rollback ");
                 transaction.rollback();

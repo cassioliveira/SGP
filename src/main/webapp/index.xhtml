@@ -9,7 +9,7 @@
 
 
     <ui:define name="content">
-
+        <h:form>
         <div>
             <p:dialog header="Login" resizable="false" visible="true">
                 <h:panelGrid columns="2" cellpadding="5">
@@ -19,20 +19,15 @@
                     <h:outputLabel for="password" value="#{bundle.ViewLoginLabel_password}" />
                     <p:password id="password" value="#{loginController.selected.password}" required="true" label="password" />
                     
-                    <p:button outcome="template" value="OK">
-                        <f:param name="productId" value="10" />
-                    </p:button>
+                    <p:commandButton id="ok" value="Ak"  ajax="false" action="#{loginController.validation}"/>
                 </h:panelGrid>
             </p:dialog>
         </div>
-
+        
         <p:graphicImage library="images" name="hotel_sys.png" style="width: 600px;height: 310px;margin-top: 40px;margin-left: 15px;"/>
-
+        </h:form>
 
     </ui:define>
-
-
-
 
 
 </ui:composition>

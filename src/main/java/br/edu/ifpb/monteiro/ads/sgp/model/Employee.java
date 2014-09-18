@@ -17,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,15 +29,23 @@ import javax.persistence.TemporalType;
  * @author Wilde Arruda
  */
 @br.edu.ifpb.monteiro.ads.sgp.model.qualifiers.EmployeeQlf
-@Entity()
+@Entity
 @Table(name = "Employee")
 @PrimaryKeyJoinColumn(name = "id")
 public class Employee implements Serializable, Identifiable {
 
-    private static final long serialVersionUID = 1L;
+//    private static final long serialVersionUID = 1L;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "id")
+    
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="employee_id_seq",
+                       sequenceName="employee_id_seq",
+                       allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator="employee_id_seq")
+    @Column(name = "id", updatable=false)
     private Long id;
 
     @Column(name = "emp_code", nullable = false, length = 20)

@@ -7,6 +7,7 @@
 package br.edu.ifpb.monteiro.ads.sgp.util.jpa;
 
 
+import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
@@ -14,8 +15,6 @@ import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 
 /**
@@ -27,7 +26,7 @@ import org.apache.logging.log4j.Logger;
 public class EntityManagerProducer {
 
 	private static EntityManagerFactory factory;
-        private static  Logger log = LogManager.getLogger(EntityManagerProducer.class);
+        private static final Logger log = Logger.getGlobal();
         
 	protected EntityManagerProducer() {
 		EntityManagerProducer.factory = Persistence.createEntityManagerFactory("br.edu.ifpb.monteiro.ads.sgp_SGP_war_1.0-SNAPSHOTPU");

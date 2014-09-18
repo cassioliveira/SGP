@@ -14,8 +14,6 @@
                 <p:growl id="msgEmployeeForm" showDetail="true" sticky="true"/>
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{employeeController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateEmployeeLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{employeeController.selected.id}" title="#{bundle.CreateEmployeeTitle_id}" />
                         <p:outputLabel value="#{bundle.CreateEmployeeLabel_code}" for="code" />
                         <p:inputText id="code" value="#{employeeController.selected.code}" title="#{bundle.CreateEmployeeTitle_code}" required="true" requiredMessage="#{bundle.CreateEmployeeRequiredMessage_code}"/>
                         <p:outputLabel value="#{bundle.CreateEmployeeLabel_name}" for="name" />

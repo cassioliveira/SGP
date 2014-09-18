@@ -11,6 +11,8 @@ import br.edu.ifpb.monteiro.ads.sgp.dao.qualifiers.EmployeeDaoQlf;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import br.edu.ifpb.monteiro.ads.sgp.util.jpa.Transactional;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
@@ -21,6 +23,8 @@ import javax.inject.Inject;
 @SessionScoped
 public class EmployeeServices implements EmployeeServicesIF {
 
+    private static final Logger logger = Logger.getGlobal();
+    
     @Inject
     @EmployeeDaoQlf
     private EmployeeDaoIF employeeDao;
@@ -35,9 +39,10 @@ public class EmployeeServices implements EmployeeServicesIF {
     public void create(Identifiable entity) {
         
         try{
+            logger.info("Service Create Acessado");
         this.employeeDao.create(entity);
         }catch (Exception e) {
-            System.err.println("Erro no Service: "+e.getMessage());
+            logger.log(Level.SEVERE, "Erro: {0}", e.getMessage());
         }
     }
 

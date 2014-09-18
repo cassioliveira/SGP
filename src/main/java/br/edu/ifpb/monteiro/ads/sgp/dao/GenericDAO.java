@@ -8,6 +8,8 @@ package br.edu.ifpb.monteiro.ads.sgp.dao;
 import br.edu.ifpb.monteiro.ads.sgp.dao.facades.GenericDaoIF;
 import br.edu.ifpb.monteiro.ads.sgp.model.Identifiable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -23,6 +25,7 @@ import javax.persistence.EntityManager;
 public class GenericDAO<T extends Identifiable> implements GenericDaoIF {
 
     private Class<T> entityClass;
+    private static final Logger logger = Logger.getGlobal();
 
     
     @Inject
@@ -41,11 +44,12 @@ public class GenericDAO<T extends Identifiable> implements GenericDaoIF {
 
     @Override
     public void create(Identifiable entity) {
-        System.out.println("Passei aqui D");
+        logger.info("DAO Create Acessado");
         try {
+            
             getEntityManager().persist(entity);
         } catch (Exception e) {
-            System.err.println("Erro no DAO: "+e.getMessage());
+            logger.log(Level.INFO, "Erro no DAO: {0}", e.getMessage());
         }
         
     }
