@@ -19,6 +19,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -34,9 +35,13 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "id")
 public class Client implements Serializable, Identifiable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="client_id_seq",
+                       sequenceName="client_id_seq",
+                       allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator="client_id_seq")
+    @Column(name = "id", updatable=false)
     private Long id;
 
     @Column(name = "client_name", nullable = false, length = 100)

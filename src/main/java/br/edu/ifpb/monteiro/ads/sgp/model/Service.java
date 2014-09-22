@@ -18,6 +18,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,9 +35,13 @@ import javax.persistence.TemporalType;
 @PrimaryKeyJoinColumn(name = "id")
 public class Service implements Serializable, Identifiable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="service_id_seq",
+                       sequenceName="service_id_seq",
+                       allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator="service_id_seq")
+    @Column(name = "id", updatable=false)
     private Long id;
 
     @Column(name = "service_description", nullable = false, length = 255)

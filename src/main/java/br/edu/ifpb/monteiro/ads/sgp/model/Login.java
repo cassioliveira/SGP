@@ -18,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  * Class to modelling the Login entity.
@@ -29,9 +30,13 @@ import javax.persistence.ManyToOne;
 @Entity 
 public class Login implements Serializable, Identifiable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="login_id_seq",
+                       sequenceName="login_id_seq",
+                       allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator="login_id_seq")
+    @Column(name = "id", updatable=false)
     private Long id;
 
     @Column(name = "login_user", nullable = false, length = 16, unique = true)

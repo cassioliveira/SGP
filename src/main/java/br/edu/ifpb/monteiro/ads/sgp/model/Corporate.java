@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SequenceGenerator;
 
 /**
  * Class to modelling the Corporate entity, making heritage with Client class,
@@ -25,9 +26,13 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(name = "id")
 public class Corporate extends Client implements Serializable, Identifiable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="corporate_id_seq",
+                       sequenceName="corporate_id_seq",
+                       allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator="corporate_id_seq")
+    @Column(name = "id", updatable=false)
     private Long id;
 
     @Column(name = "client_fantasy_name", nullable = false, length = 100)

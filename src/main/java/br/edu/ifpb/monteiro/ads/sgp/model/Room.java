@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -30,9 +31,13 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "id")
 public class Room implements Serializable, Identifiable {
 
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="room_id_seq",
+                       sequenceName="room_id_seq",
+                       allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator="room_id_seq")
+    @Column(name = "id", updatable=false)
     private Long id;
 
     @Column(name = "room_category", length = 50)
