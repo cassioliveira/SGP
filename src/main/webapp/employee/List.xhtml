@@ -112,7 +112,7 @@
                             <h:outputText value="#{item.birthDate}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{employeeController.prepareCreate}" update=":EmployeeCreateForm" oncomplete="PF('EmployeeCreateDialog').show()"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" update=":EmployeeCreateForm" oncomplete="PF('EmployeeCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EmployeeViewForm" oncomplete="PF('EmployeeViewDialog').show()" disabled="#{empty employeeController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":EmployeeEditForm" oncomplete="PF('EmployeeEditDialog').show()" disabled="#{empty employeeController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{employeeController.destroy}" update=":growl,datalist" disabled="#{empty employeeController.selected}"/>

@@ -12,10 +12,7 @@
             <h:form id="IndividualCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{individualController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateIndividualLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{individualController.selected.id}" title="#{bundle.CreateIndividualTitle_id}" />
-                        <p:outputLabel value="#{bundle.CreateIndividualLabel_gender}" for="gender" />
-                        <p:inputText id="gender" value="#{individualController.selected.gender}" title="#{bundle.CreateIndividualTitle_gender}" />
+                  
                         <p:outputLabel value="#{bundle.CreateIndividualLabel_cpf}" for="cpf" />
                         <p:inputText id="cpf" value="#{individualController.selected.cpf}" title="#{bundle.CreateIndividualTitle_cpf}" required="true" requiredMessage="#{bundle.CreateIndividualRequiredMessage_cpf}"/>
                         <p:outputLabel value="#{bundle.CreateIndividualLabel_docTravelNumber}" for="docTravelNumber" />

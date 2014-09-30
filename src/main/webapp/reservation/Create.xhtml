@@ -12,8 +12,7 @@
             <h:form id="ReservationCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{reservationController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateReservationLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{reservationController.selected.id}" title="#{bundle.CreateReservationTitle_id}" />
+                        
                         <p:outputLabel value="#{bundle.CreateReservationLabel_dateInput}" for="dateInput" />
                         <p:inputText id="dateInput" value="#{reservationController.selected.dateInput}" title="#{bundle.CreateReservationTitle_dateInput}" required="true" requiredMessage="#{bundle.CreateReservationRequiredMessage_dateInput}"/>
                         <p:outputLabel value="#{bundle.CreateReservationLabel_forecastOutput}" for="forecastOutput" />

@@ -12,8 +12,7 @@
             <h:form id="CorporateCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{corporateController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCorporateLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{corporateController.selected.id}" title="#{bundle.CreateCorporateTitle_id}" />
+                        
                         <p:outputLabel value="#{bundle.CreateCorporateLabel_fantasyName}" for="fantasyName" />
                         <p:inputText id="fantasyName" value="#{corporateController.selected.fantasyName}" title="#{bundle.CreateCorporateTitle_fantasyName}" required="true" requiredMessage="#{bundle.CreateCorporateRequiredMessage_fantasyName}"/>
                         <p:outputLabel value="#{bundle.CreateCorporateLabel_cnpj}" for="cnpj" />
